@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Doceria</title>
+</head>
+<body>
+
+    Quantidade de Macarons: <input id="ipt_macaron" type="text">
+    <br>
+    Quantidade de Brigadeiros Gourmets: <input id="ipt_brigadeiro" type="text">
+    <br>
+    Quantidade de Cupcakes: <input id="ipt_cupcake" type="text">
+    <br>
+    Quantidade de Cheesecakes: <input id="ipt_cheesecake" type="text">
+    <br><br>
+    Preço da unidade de Macarons: <input id="ipt_preco_macaron" type="text">
+    <br>
+    Preço da unidade de Brigadeiros Gourmets: <input id="ipt_preco_brigadeiro" type="text">
+    <br>
+    Preço da unidade de Cupcakes: <input id="ipt_preco_cupcake" type="text">
+    <br>
+    Preço da unidade de Cheesecakes: <input id="ipt_preco_cheesecake" type="text">
+    <br><br>
+    <button onclick="verificar()">Verificar vendas</button>
+
+    <div id="div_mensagem"></div>
+    
+
+    
+
+</body>
+</html>
+
+<script>
+    function verificar() {
+        var qtd_macaron = Number(ipt_macaron.value);
+        var qtd_brigadeiro = Number(ipt_brigadeiro.value);
+        var qtd_cupcake = Number(ipt_cupcake.value);
+        var qtd_cheesecake = Number(ipt_cheesecake.value);
+
+        var preco_macaron = Number(ipt_preco_macaron.value);
+        var preco_brigadeiro = Number(ipt_preco_brigadeiro.value);
+        var preco_cupcake = Number(ipt_preco_cupcake.value);
+        var preco_cheesecake = Number(ipt_preco_cheesecake.value);
+
+
+        var qtd_produtos = qtd_macaron + qtd_brigadeiro + qtd_cheesecake + qtd_cupcake;
+
+
+        if (qtd_macaron < 0 || qtd_brigadeiro < 0 || qtd_cupcake < 0 || qtd_cheesecake < 0 || preco_macaron < 0 || preco_brigadeiro < 0 || ipt_preco_cupcake < 0 || preco_cheesecake < 0) {
+            div_mensagem.innerHTML = 'Nenhum valor pode ser negativo!';
+        }
+
+        for (var index = 0; index <= qtd_produtos; index++) {
+
+
+            for (var cont_macaron = 1 ; cont_macaron <= qtd_macaron; cont_macaron++ ) {
+                index++
+                div_mensagem.innerHTML += `Venda - ${index} - <img style="width: 50px;"  src="https://guiadacozinha.com.br/wp-content/uploads/2021/08/macaron-768x619.jpg" alt=""> - ${preco_macaron}R$ <br>`
+                var preco_total_macaron = preco_macaron * cont_macaron;
+            }
+
+            for (var cont_brigadeiro = 1 ; cont_brigadeiro <= qtd_brigadeiro; cont_brigadeiro++) {
+                index++
+                div_mensagem.innerHTML += `Venda - ${index} - <img style="width: 50px;"  src="https://graoescolagourmet.com.br/wp-content/uploads/2022/07/Brigadeiro-Gourmet-831x1024.jpeg" alt=""> - ${preco_brigadeiro}R$ <br>`
+                var preco_total_brigadeiro = preco_brigadeiro * cont_brigadeiro;
+            }
+
+            for (var cont_cupcake = 1 ; cont_cupcake <= qtd_cupcake; cont_cupcake++) {
+                index++
+                div_mensagem.innerHTML += `Venda - ${index} - <img style="width: 50px;"  src="https://guiadacozinha.com.br/wp-content/uploads/2018/10/Cupcake-de-cafe-com-chantilly-768x619.jpg" alt = ""> - ${preco_cupcake}R$ <br>`
+                var preco_total_cupcake = preco_cupcake * cont_cupcake;
+            }
+
+            for (var cont_cheesecake = 1 ; cont_cheesecake <= qtd_cheesecake; cont_cheesecake++) {
+                index++
+                div_mensagem.innerHTML += `Venda - ${index} - <img style="width: 50px;"  src="https://www.acasaencantada.com.br/wp-content/uploads/2023/06/cheesecake_de_frutas_vermelhas_03-1200x1200.jpeg" alt=""> - ${preco_cheesecake}R$ <br>`
+                var preco_total_cheesecake = preco_cheesecake * cont_cheesecake;
+            }
+
+            var preco_total = preco_total_macaron + preco_total_brigadeiro + preco_total_cupcake + preco_total_cheesecake;
+
+        }
+
+
+        div_mensagem.innerHTML += ` <br> <br>Com a quantidade de ${qtd_macaron} Macarons, ${qtd_brigadeiro} Brigadeiros, ${qtd_cupcake} Cupcakes e ${qtd_cheesecake} Cheesecakes, a venda totalizará R$${preco_total}"
+
+`
+    }
+            
+
+
+</script>

@@ -51,8 +51,9 @@
 
         if (qtd_macaron < 0 || qtd_brigadeiro < 0 || qtd_cupcake < 0 || qtd_cheesecake < 0 || preco_macaron < 0 || preco_brigadeiro < 0 || ipt_preco_cupcake < 0 || preco_cheesecake < 0) {
             div_mensagem.innerHTML = 'Nenhum valor pode ser negativo!';
-        }
-
+        
+        } else {
+            
         for (var index = 0; index <= qtd_produtos; index++) {
 
 
@@ -83,6 +84,8 @@
             var preco_total = preco_total_macaron + preco_total_brigadeiro + preco_total_cupcake + preco_total_cheesecake;
 
         }
+
+    }
 
 
         div_mensagem.innerHTML += ` <br> <br>Com a quantidade de ${qtd_macaron} Macarons, ${qtd_brigadeiro} Brigadeiros, ${qtd_cupcake} Cupcakes e ${qtd_cheesecake} Cheesecakes, a venda totalizará R$${preco_total}"

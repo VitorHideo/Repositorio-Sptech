@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitor's Machine</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    
+    <div class="container">
+        
+        <div class="card">
+           
+            <h1>Vitor's Machine</h1>
+            <br>
+            
+            <div class="insert">
+                
+                <h3>Decimal</h3>
+                <input class="input_decimal" id="demo1" type="text" placeholder="Digite o valor em decimal">
+                <br> 
+                
+            </div>
+
+            <div class="conversao">
+                
+                <h3>converter para:</h3>
+                <label> <input id="demo2" type="checkbox"><b>Octal</b></label>
+                <br>
+                
+                <div class="display_octal"></div>
+                
+                <br>
+                <label> <input id="demo3" type="checkbox"><b>Hexadecimal</b></label>
+                <br>
+                
+                <div class="display_hexa"></div>
+               
+                <br>
+                <label> <input id="demo4" type="checkbox"><b>Binário</b></label>
+                <br>
+                
+                <div class="display_bin"></div>
+                
+                <br><br>
+                <button class="botao" onclick="converter()">Converter</button>
+            
+            </div>
+        
+        </div>
+    
+    </div>
+    
+<script>
+        function converter() {
+            var decimal = Number(document.getElementById("demo1").value);
+            let octal = decimal.toString(8);
+            let hexadecimal = decimal.toString(16);
+            let binaria = decimal.toString(2);
+
+            console.log(decimal);
+            console.log(octal);
+            console.log(hexadecimal);
+            console.log(binaria);
+
+            document.querySelector(".display_octal").innerHTML = octal;
+            document.querySelector(".display_hexa").innerHTML = hexadecimal;
+            document.querySelector(".display_bin").innerHTML = binaria;
+        }
+</script>
+</body>
+</html>

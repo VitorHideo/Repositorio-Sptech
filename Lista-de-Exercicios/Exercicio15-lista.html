@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 15</title>
+</head>
+<body>
+
+    <h1>Exercicio 15</h1>
+
+    Idade: <input oninput="exibir()" id="ipt_idade" type="text">
+    <br>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function exibir() {
+        var idade = Number(ipt_idade.value);
+
+        div_mensagem.innerHTML = '';
+
+        for (var cont = 0; cont <= idade; cont++) {
+            if (cont >= 0 && cont <= 4) {
+                div_mensagem.innerHTML += `${cont} anos (Primeira Infância) <br>`;
+            }
+            if (cont >= 5 && cont <= 6 ) {
+                div_mensagem.innerHTML += `${cont} anos (Pré-escolar) <br>`;
+            }
+            if (cont >= 7 && cont <= 10) {
+                div_mensagem.innerHTML += `${cont} anos (Segunda Infância) <br>`;
+            }
+            if (cont >= 10 && cont <= 18) {
+                div_mensagem.innerHTML += `${cont} anos (Adolescência) <br>`;
+            }
+            if (cont >= 19 && cont <= 50) {
+                div_mensagem.innerHTML += `${cont} anos (Adulto) <br>`;
+            }
+            if (cont >= 51 && cont <= 100) {
+                div_mensagem.innerHTML += `${cont} anos (Melhor idade) <br>`;
+            }
+            if (cont > 100) {
+                div_mensagem.innerHTML += `${cont} anos (Metusalém) <br>`
+            }
+
+        }
+    }
+</script>

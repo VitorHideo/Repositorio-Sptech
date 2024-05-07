@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio 5</title>
+</head>
+<body>
+
+  <h1>Exercicio 05</h1>
+
+  Rodadas: <input id="ipt_rodadas" type="text">
+  <br>
+
+  Par ou Ímpar ?<select id="select_escolha">
+    <option >PAR</option>
+    <option >IMPAR</option>
+  </select>
+  <br>
+
+  <button onclick="jogar()">Jogar</button>
+
+  <div id="div_mensagem"></div>
+  
+</body>
+</html>
+
+<script>
+
+    function jogar () {
+      var rodadas = Number(ipt_rodadas.value);
+      var escolha = select_escolha.value;
+
+      var pontuacao_jogador = 0;
+      var pontuacao_programa = 0;
+
+      div_mensagem.innerHTML = "";
+
+      for (var cont = 1 ; cont <= rodadas ; cont ++) {
+        
+        div_mensagem.innerHTML += `${aleatorio} <br>`;
+
+        aleatorio = Number(aleatorio.toFixed(0));
+
+        if (aleatorio % 2 == 0) {
+          div_mensagem.innerHTML += `é PAR`;
+
+          if (escolha == 'PAR') {
+            
+          }
+        }
+      }
+    }
+</script>

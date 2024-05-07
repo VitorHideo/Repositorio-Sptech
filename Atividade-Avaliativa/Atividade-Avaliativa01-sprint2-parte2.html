@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa 01 - Sprint 2</title>
+</head>
+
+<body>
+
+    <h1>O banco KNAB é a sua melhor opção</h1>
+    <br>
+
+    <h2>Emprestimos e Investimentos com as melhores taxas do mercado</h2>
+    <br>
+
+    <h2>Entre com os dados da sua simulação</h2>
+    <br>
+
+    Valor da Operação: <input id="ipt_operacao" type="text">
+    <br><br>
+
+    <select id="select_operacao">
+        <option selected disabled value="0">Selecione a Operação</option>
+        <option value="1">Empréstimo</option>
+        <option value="2">Investimento</option>
+    </select>
+
+    <select id="select_prazo">
+        <option selected disabled value="0">Selecione o Prazo</option>
+        <option value="Curto">Curto</option>
+        <option value="Medio">Médio</option>
+        <option value="Longo">Longo</option>
+    </select>
+    <br><br><br>
+
+    <button onclick="mostrar()">Mostrar o Resultado</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function mostrar() {
+        var operacao = Number(ipt_operacao.value);
+        var opcao_operacao = select_operacao.value;
+        var opcao_prazo = select_prazo.value;
+
+        if (opcao_prazo == 'Curto' || opcao_prazo == 'Medio') {
+            alert('Esta operação está condicionada ao seu perfil');
+        }
+
+        var emprestimo_juros_curto = operacao * 0.24;
+        var emprestimo_juros_medio = operacao * 0.16;
+        var emprestimo_juros_longo = operacao * 0.1;
+
+        var investimento_rendimento_curto = operacao * 0.05;
+        var investimento_rendimento_medio = operacao * 0.08;
+        var investimento_rendimento_longo = operacao * 0.12;
+
+
+        for (var cont = 1; cont <= 1; cont++) {
+
+            if (opcao_operacao == 1 && opcao_prazo == 'Curto') {
+                div_mensagem.innerHTML += `<br>Simulação ${cont} – Para o empréstimo de R$${operacao} no prazo ${opcao_prazo} será cobrado os juros de R$${emprestimo_juros_curto} ao ano`
+            }
+
+            if (opcao_operacao == 1 && opcao_prazo == 'Medio') {
+                div_mensagem.innerHTML += `<br>Simulação ${cont} – Para o empréstimo de R$${operacao} no prazo ${opcao_prazo} será cobrado os juros de R$${emprestimo_juros_medio} ao ano`
+            }
+
+            if (opcao_operacao == 1 && opcao_prazo == 'Longo') {
+                div_mensagem.innerHTML += `<br>Simulação ${cont} – Para o empréstimo de R$${operacao} no prazo ${opcao_prazo} será cobrado os juros de R$${emprestimo_juros_longo} ao ano`
+            }
+
+            if (opcao_operacao == 2 && opcao_prazo == 'Curto') {
+                div_mensagem.innerHTML += `<br>Simulação ${cont} – Investindo R$${operacao} no prazo ${opcao_prazo} o seu rendimento será de R$${investimento_rendimento_curto} ao ano`
+            }
+
+            if (opcao_operacao == 2 && opcao_prazo == 'Medio') {
+                div_mensagem.innerHTML += `<br>Simulação ${cont} – Investindo R$${operacao} no prazo ${opcao_prazo} o seu rendimento será de R$${investimento_rendimento_medio} ao ano`
+            }
+
+            if (opcao_operacao == 2 && opcao_prazo == 'Longo') {
+                div_mensagem.innerHTML += `<br>Simulação ${cont} – Investindo R$${operacao} no prazo ${opcao_prazo} o seu rendimento será de R$${investimento_rendimento_longo} ao ano`
+            }
+        }
+    }
+
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 16</title>
+</head>
+<body>
+
+    <h1>Exercicio 16</h1>
+
+    Quantas pessoas no carro: <input id="ipt_pessoas" type="text">
+    <br>
+    <button onclick="exibir()">#Partiu Carona</button>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function exibir () {
+        var pessoas = Number(ipt_pessoas.value);
+
+        for (var cont = 1 ; cont <= pessoas ; cont++) {
+            if (cont >= 6) {
+                div_mensagem.innerHTML += `O ${cont}° passageiro terá que esperar! <br>`;
+            } else {
+                div_mensagem.innerHTML += `Entrou o ${cont}° passageiro <br>`;
+            }
+
+        }
+    }
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 08</title>
+</head>
+<body>
+
+    <h1>Exercicio 08</h1>
+
+    Número: <input id="ipt_num" type="number">
+    <br>
+    <button onclick="contar()">Viva o 7!</button>
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function contar(){
+        var numero = Number(ipt_num.value);
+
+        if (numero >= 0 && numero <= 200){
+            for (var cont = 0; cont <= numero; cont++) {
+                var resto = cont % 7;
+
+                if (resto == 0) {
+                    div_mensagem.innerHTML += `${cont} <br>`
+                }
+            }
+        } else {
+            alert ('O número deve estar entre 0 e 200')
+        }
+    }
+</script>

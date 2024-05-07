@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio 03</title>
+</head>
+<body>
+
+    <h1>Exercicio 03</h1>
+
+    <select id="select_passageiro">
+      <option value="0" disabled selected>Selecione o tipo do passageiro</option>
+      <option value="1">Comum</option>
+      <option value="2">Estudante</option>
+      <option value="3">Idoso/PNE</option>
+    </select>
+    <br>
+    <select id="select_passagem">
+      <option value="0" disabled selected>Selecione o tipo de passagem</option>
+      <option value="1">Passagem única</option>
+      <option value="2">Passagem integrada</option>
+    </select>
+    <br>
+    <button onclick="simular()">Simular preço</button>
+
+</body>
+</html>
+
+<script>
+  function simular(){
+    var passageiro = Number(select_passageiro.value);
+    var passagem = Number(select_passagem.value);
+
+    var unica = 4.40;
+    var integrada = 5.90;
+
+    var estudante_unica = unica * 0.50; 
+    var estudante_integrada = integrada * 0.50;
+    var idoso = 0;
+
+    if (passageiro == 2 && passagem == 1) {
+      alert (`Valor da passagem escolhida: R$${estudante_unica}`);
+    } 
+    if (passageiro == 2 && passagem == 2) {
+      alert (`O valora da passagem escolhida: R$${estudante_integrada}`);
+    }
+    if (passageiro == 3 && (passagem == 1 || passagem ==2)) {
+      alert (`O valor da passagem escolhida: R$${idoso}`);
+    }
+    if (passageiro == 1 && passagem == 1) {
+      alert (`O valor da passagem escolhida: R$${unica}`);
+    }
+    if (passageiro == 1 && passagem == 2) {
+      alert (`O valor da passagem escolhida: R$${integrada}`);
+    }
+  }
+</script>

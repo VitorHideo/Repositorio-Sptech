@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+<body>
+
+    <h1>Exercicio 03</h1>
+    <button onclick="contar()">Diga algo sobre a matéria de Algoritmos</button>
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function contar(){
+
+        for (var cont = 1; cont >= 0 && cont <= 7; cont++) {
+            div_mensagem.innerHTML += `${cont}. Aula boa! <br>`
+
+        }
+    }
+</script>

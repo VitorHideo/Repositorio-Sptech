@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+<body>
+
+    <h1>Exercicio 03</h1>
+
+    valor: <input id="ipt_valor" type="text">
+    <br>
+    <button onclick="exibir()">Exibir número aleatorio</button>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function exibir () {
+        var valor = Number(ipt_valor.value);
+
+        div_mensagem.innerHTML = "<br>";
+        
+        var cont_abaixo = 0;
+        var cont_acima = 0;
+
+        var maior_numero = 0;
+        var menor_numero = 1;
+
+        var total = 0;
+
+        for (var cont = 1; cont <= valor; cont++) {
+        var aleatorio = Math.random();
+
+        total += aleatorio;
+        
+        if (aleatorio <= 0.5) {
+            cont_acima++;
+            div_mensagem.innerHTML += `${aleatorio} está na metade superior dos números <br>`;
+        } else {
+            cont_abaixo++;
+            div_mensagem.innerHTML += `${aleatorio} está na metade inferior dos números <br>`;
+        }
+        if (aleatorio > maior_numero) {
+            maior_numero = aleatorio;
+        }
+        if (aleatorio < menor_numero) {
+            menor_numero = aleatorio;
+        }
+    }
+
+    var media = total / valor;
+
+    div_mensagem.innerHTML += `<br><br>TOTAL DE NÚMEROS SORTEADOS ABAIXO DA METADE ${cont_abaixo} <br>`;
+    div_mensagem.innerHTML += `TOTAL DE NÚMEROS SORTEADOS ACIMA DA METADE ${cont_acima} <br>`;
+    div_mensagem.innerHTML += `MAIOR NÚMERO SORTEADO = ${maior_numero} <br>`;
+    div_mensagem.innerHTML += `MENOR NÚMERO SORTEADO = ${menor_numero} <br>`;
+    div_mensagem.innerHTML += `MÉDIA DE NÚMEROS SORTEADOS = ${media} <br>`;
+}
+
+</script>

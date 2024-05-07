@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa 1</title>
+</head>
+
+<body>
+    
+    <h1>Medidas Antropométricas</h1> 
+    <h2>Informe os seus dados abaixo</h2>
+
+    Nome completo: <input id="inp_nome" type="text"> <br>
+    Peso (em kg): <input id="inp_peso" type="text"> <br>
+    Altura (em m): <input id="inp_altura" type="text"> <br>
+
+    <button onclick="calcular()">Calcular</button>
+
+</body>
+
+</html>
+
+<script>
+    
+    function calcular(){
+        var nome = inp_nome.value;
+        var peso = Number(inp_peso.value);
+        var altura = Number(inp_altura.value);
+
+        var IMC = peso / (altura * altura);
+        var altura_pes = altura / 0.3048;
+        var peso_oncas = peso * 35.274;
+        var IMC_pes_oncas = peso_oncas / (altura_pes * altura_pes);
+
+        var mensagem = (nome + ' seu IMC é de: ' + IMC + ' A sua altura em pés é de: ' + altura_pes + ' O seu peso em onças é de: ' + peso_oncas + ' O seu IMC em pés/onças² é de: ' + IMC_pes_oncas);
+        
+        alert (mensagem);
+    }
+
+</script>

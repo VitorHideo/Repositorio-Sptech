@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 14</title>
+</head>
+<body>
+
+    <h1>Exercicio 14</h1>
+
+    Primeiro número: <input id="ipt_num1" type="text">
+    <br>
+    Segundo número: <input id="ipt_num2" type="text">
+    <br>
+    <button onclick="exibir()">Curto 3 e 5</button>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function exibir () {
+        var num1 = Number(ipt_num1.value);
+        var num2 = Number(ipt_num2.value);
+
+        if (num2 > num1){
+
+        for (var cont = num1 ; cont <= num2 ; cont++) {
+            var resto5 = cont % 5
+            var resto3 = cont % 3
+
+            if (resto5 == 0 && resto3 == 0) {
+                div_mensagem.innerHTML += `É TRI! É PENTA! <br>`
+
+            } else if (resto5 == 0) {
+                div_mensagem.innerHTML += `É PENTA! <br>`
+
+            } else if (resto3 == 0) {
+                div_mensagem.innerHTML += `É TRI! <br>`
+            
+            }else {
+            div_mensagem.innerHTML += `${cont} <br>`;
+        }
+    } 
+    } else {
+        alert ('O intervalo de numeros deve ser crescente');
+    }
+}
+ 
+</script>

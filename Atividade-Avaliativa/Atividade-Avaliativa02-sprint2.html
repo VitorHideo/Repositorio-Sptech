@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa 2</title>
+</head>
+
+<body>
+
+    Episódio que deseja começar assistindo: <input id="ipt_ep" type="text">
+    <br>
+    Quantidade de tempo disponível: <input id="ipt_tempo" type="text">
+    <br>
+    Unidade de tempo em:
+    <select id="select_unidade">
+        <option selected disabled value="0">Selecione uma opção</option>
+        <option value="min">Minutos</option>
+        <option value="horas">Horas</option>
+    </select>
+    <br>
+    Pular abertura?
+    <select id="select_abertura">
+        <option selected disabled value="0">Selecione uma opção</option>
+        <option value="abertura_sim">Sim</option>
+        <option value="abertura_nao">Não</option>
+    </select>
+    <br>
+    Pular encerramento?
+    <select id="select_encerramento">
+        <option selected disabled value="0">Selecione uma opção</option>
+        <option value="encerramento_sim">Sim</option>
+        <option value="encerramento_nao">Não</option>
+    </select>
+    <br>
+
+    <button onclick="assistir()">Assistir Episódios</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function assistir() {
+        var episodio = Number(ipt_ep.value);
+        var tempo = Number(ipt_tempo.value);
+
+        var unidade = select_unidade.value;
+
+        var abertura = select_abertura.value;
+        var encerramento = select_encerramento.value;
+
+        div_mensagem.innerHTML = "";
+
+        if (episodio < 1 || episodio > 1100) {
+            alert('O número do episódio é inválido');
+        }
+
+        if (unidade == 'horas') {
+            tempo *= 60;
+        }
+
+        var minutos_episodio = 0;
+        
+
+        if (abertura == 'abertura_sim' && encerramento == 'encerramento_sim') {
+            minutos_episodio = 20;
+        } else if (abertura == 'abertura_sim' && encerramento == 'encerramento_nao') {
+            minutos_episodio = 22;
+        } else if (abertura == 'abertura_nao' && encerramento == 'encerramento_nao') {
+            minutos_episodio = 24;
+        } else if (abertura == 'abertura_nao' && encerramento == 'encerramento_sim') {
+            minutos_episodio = 22;
+        }
+
+        var episodios_assistidos = 0;
+
+        var minutos_assistidos = 0;
+
+        for (episodio ; minutos_assistidos < tempo; episodio++) {
+
+            div_mensagem.innerHTML += `<br> Episódio ${episodio} <br>`
+
+            for (cont2 = 1; cont2 <= minutos_episodio; cont2++) {
+
+                if (minutos_assistidos >= tempo) {
+                    break;
+                }
+
+                if (minutos_episodio == 20) {
+                    div_mensagem.innerHTML += `Minuto ${cont2}: Assistindo Episódio <br>`;
+                }
+
+                if (minutos_episodio == 24) {
+
+                    if (cont2 <= 2) {
+                        div_mensagem.innerHTML += `Minuto ${cont2}: Assistindo Abertura <br> `;
+                    }
+
+                    if (cont2 >= 23) {
+                        div_mensagem.innerHTML += `Minuto ${cont2}: Assistindo Encerramento <br> `;
+                    } else if (cont2 > 2 && cont2 < 21) {
+                        div_mensagem.innerHTML += `Minuto ${cont2}: Assistindo Episódio <br>`;
+                    }
+
+                }
+                if (minutos_episodio == 22 && encerramento == 'encerramento_sim') {
+                    if (cont2 <= 2) {
+                        div_mensagem.innerHTML += `Minuto ${cont2}: Assistindo Abertura <br> `;
+                    } else {
+                        div_mensagem.innerHTML += `Minuto ${cont2}: Assistindo Episódio <br>`;
+                    }
+                }
+
+                if (minutos_episodio == 22 && abertura == 'abertura_sim') {
+
+                    if (cont2 >= 21) {
+                        div_mensagem.innerHTML += `Minuto ${cont2}: Assistindo Encerramento <br>`;
+                    } else {
+                        div_mensagem.innerHTML += `Minuto ${cont2}: Assistindo Episódio <br>`;
+                    }
+                }
+                
+                minutos_assistidos++;
+            }
+
+        }
+
+        var calculo = tempo / minutos_episodio;
+
+        div_mensagem.innerHTML += `<br> <br> Fim dos Episódios! <br> <br> Foram assistidos ${calculo} episódios`
+    } 
+
+</script>

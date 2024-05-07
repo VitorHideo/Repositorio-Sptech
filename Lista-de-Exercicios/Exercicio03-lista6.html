@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+<body>
+
+    <h1>Exercicio 03</h1>
+
+    Nota: <input id="ipt_nota" type="text">
+    <br>
+    <button onclick="analisar()">Avaliar aluno</button>
+    
+</body>
+</html>
+
+<script>
+
+    function analisar(){
+        var nota = Number(ipt_nota.value);
+        var mensagem = 'Onde já se viu nota menor que 0 e maior que 10?!';
+
+        if (nota >= 0 && nota <= 10){
+            mensagem = 'Nota válida';
+        }
+
+        alert (mensagem);
+    }
+</script>

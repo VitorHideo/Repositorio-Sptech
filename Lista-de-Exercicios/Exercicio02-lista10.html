@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+<body>
+
+    <h1>Exercicio 02</h1>
+
+    valor: <input id="ipt_valor" type="text">
+    <br>
+    <button onclick="exibir()">Exibir número aleatorio</button>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function exibir () {
+        var valor = Number(ipt_valor.value);
+
+        div_mensagem.innerHTML = "";
+        
+        for (var cont = 1; cont <= valor; cont++) {
+        var aleatorio = Math.random();
+        var cont_abaixo = '0';
+
+        if (aleatorio <= 0.5) {
+            div_mensagem.innerHTML += `${aleatorio} está na metade superior dos números <br>`;
+        } else {
+            cont_abaixo++;
+            div_mensagem.innerHTML += `${aleatorio} está na metade inferior dos números <br>`;
+        }
+    }
+
+    div_mensagem.innerHTML += `TOTAL DE NÚMEROS SORTEADOS ABAIXO DA METADE ${cont_abaixo} <br>`
+}
+</script>

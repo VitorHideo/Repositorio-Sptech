@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio 13</title>
+</head>
+<body>
+
+    <h1>Exercicio 13</h1>
+
+    Quantos dias de musculação: <input id="ipt_dias" type="text">
+    <br>
+    <button onclick="exibir()">Exibir rotina mensal</button>
+
+    <div id="div_mensagem"></div>
+  
+</body>
+</html>
+
+<script>
+
+  function exibir(){
+    var dias = (ipt_dias.value);
+
+    for (var cont = 1; cont <= 30; cont++) {
+      var resto = (cont - 1) % dias;
+
+      if (resto == 0) {
+        div_mensagem.innerHTML += `Dia ${cont} - Musculação <br>`;
+      } else {
+        div_mensagem.innerHTML += `Dia ${cont} - Comer, dormir etc <br>`;
+      }
+
+    }
+  }
+</script>

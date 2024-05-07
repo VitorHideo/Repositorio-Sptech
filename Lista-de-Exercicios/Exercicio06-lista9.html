@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 06</title>
+</head>
+<body>
+
+    <h1>Exercicio 06</h1>
+
+    Pessoa que mais ama na vida: <input type="text" id="ipt_ama">
+    <br>
+    Quanto você ama essa pessoa: <input type="number" id="ipt_num">
+    <br>
+    <button onclick="contar()">Exepressar amor</button>
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function contar(){
+        var pessoa = ipt_ama.value;
+        var amor = Number(ipt_num.value);
+
+        for (var cont = 1; cont <= amor; cont++) {
+            div_mensagem.innerHTML += `${cont}- ${pessoa}, eu te amo! Sempre lembre disso! <br>`
+
+        }
+    }
+</script>

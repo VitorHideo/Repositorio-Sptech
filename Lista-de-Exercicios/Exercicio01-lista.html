@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+<body>
+    <h1>Exercicio 1</h1>
+
+    Idade: <input id="input_idade" type="text">  <br>
+
+    <button onclick="generoM()">Aposentadoria Homem</button>    
+    <button onclick="generoF()">Aposentadoria Mulher</button>   
+
+</body>
+</html>
+
+<script>
+    function generoM (){
+        var idadehomem = Number(input_idade.value);
+        var calculartempo = Number(70) - idadehomem;
+        var mensagem = 'Faltam ' + calculartempo + ' anos para você se aposentar';
+        
+        alert (mensagem);
+    }
+
+    function generoF () {
+        var idademulher = Number(input_idade.value);
+        var calculartempo = Number(60) - idademulher;
+        var mensagem =  'Faltam ' + calculartempo + ' anos para você se aposentar';
+
+        alert (mensagem);
+    }
+</script>

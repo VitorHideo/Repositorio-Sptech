@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 08</title>
+</head>
+<body>
+    <h1>Exercicio 08</h1>
+
+    Valor a ser depositado <input id="inp_depositado" type="text"> <br>
+
+    <button onclick="depositar()">Depositar</button>
+    <button onclick="retirar()">Retirar</button>
+
+</body>
+</html>
+
+<script>
+    var saldo = 0;
+    var deposito = Number(inp_depositado.value);
+
+    function depositar (){
+        deposito = Number(inp_depositado.value) 
+        saldo = saldo + deposito 
+
+    alert ('Depósito de ' + deposito + ' R$ efetuado! Saldo atual: ' + saldo + 'R$');
+    }
+
+    function retirar(){
+        deposito = inp_depositado.value
+        saldo = saldo - deposito
+
+    alert ('Retirada de ' + deposito + ' R$ efetuada! Saldo atual: ' + saldo + 'R$');
+    }
+</script>

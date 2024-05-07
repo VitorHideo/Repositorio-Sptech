@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 09</title>
+</head>
+<body>
+
+    <h1>Exercicio 09</h1>
+
+    Número: <input id="ipt_num" type="text">
+    <br>
+    Frase: <input id="ipt_frase" type="text">
+    <br>
+    <button onclick="contar()">Papagaio</button>
+    
+</body>
+</html>
+
+<script>
+    function contar(){
+        var numero = Number(ipt_num.value);
+        var frase = ipt_frase.value;
+        var mensagem = '';
+
+        for (var cont = 0; cont < numero; cont++) {
+            mensagem += frase + "\n";
+        }
+
+        for (cont = 0; cont < numero ; cont++) {
+            alert(mensagem);
+        }
+        
+    }
+</script>

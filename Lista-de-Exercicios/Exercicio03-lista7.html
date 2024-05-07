@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+<body>
+
+    <h1>Exercicio 03</h1>
+
+    Renda individual: <input id="ipt_rendapessoal" type="text">
+    <br>
+    Renda familiar: <input id="ipt_rendafamiliar" type="text">
+    <br>
+    <button onclick="analisar()">Terei o benefício</button>
+    
+</body>
+</html>
+
+<script>
+    function analisar(){
+        var renda = Number(ipt_rendapessoal.value);
+        var familiar = Number(ipt_rendafamiliar.value);
+        var mensagem = 'Sem direito ao auxílio';
+
+        if (renda <= 2000 || familiar <= 3000) {
+            mensagem = 'Você terá direito ao auxílio';
+        }
+
+        alert (mensagem);
+    }
+</script>

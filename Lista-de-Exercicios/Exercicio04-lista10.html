@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+
+    <h1>Exercicio 04</h1>
+
+    valor: <input id="ipt_valor" type="text">
+    <br>
+    <button onclick="exibir()">Exibir número aleatorio</button>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function exibir () {
+        var valor = Number(ipt_valor.value);
+
+        var maior_1_quartil = 0;
+        var menor_1_quartil = 1;
+        var total_1_quartil = 0;
+
+        var maior_2_quartil = 0;
+        var menor_2_quartil = 1;
+        var total_2_quartil = 0;
+
+        var maior_3_quartil = 0;
+        var menor_3_quartil = 1;
+        var total_3_quartil = 0;
+
+        var maior_4_quartil = 0;
+        var menor_4_quartil = 1;
+        var total_4_quartil = 0;
+
+        div_mensagem.innerHTML = "";
+        
+        for (var cont = 1; cont <= valor; cont++) {
+        var aleatorio = Math.random();
+
+        if (aleatorio >= 0.75) {
+            div_mensagem.innerHTML += `${aleatorio} - 1° Quartil <br>`;
+            total_1_quartil ++;
+
+            if (aleatorio > maior_1_quartil) {
+                maior_1_quartil = aleatorio;
+            }
+
+            if (aleatorio < menor_1_quartil) {
+                maior_1_quartil = aleatorio;
+            }
+        
+        } else if (aleatorio >= 0.5){
+            div_mensagem.innerHTML += `${aleatorio} - 2° Quartil <br>`;
+            total_2_quartil ++;
+
+            if (aleatorio > maior_2_quartil) {
+                maior_2_quartil = aleatorio;
+            }
+
+            if (aleatorio < menor_2_quartil) {
+                maior_2_quartil = aleatorio;
+            }
+        
+        } else if (aleatorio >= 0.25) {
+            div_mensagem.innerHTML += `${aleatorio} - 3° Quartil <br>`;
+            total_2_quartil ++;
+
+            if (aleatorio > maior_3_quartil) {
+                maior_3_quartil = aleatorio;
+            }
+
+            if (aleatorio < menor_3_quartil) {
+                maior_3_quartil = aleatorio;
+            }
+        
+        } else {
+            div_mensagem.innerHTML += `${aleatorio} - 4° Quartil <br>`;
+            total_3_quartil ++;
+
+            if (aleatorio > maior_4_quartil) {
+                maior_4_quartil = aleatorio;
+            }
+
+            if (aleatorio < menor_4_quartil) {
+                maior_4_quartil = aleatorio;
+            }
+        }
+     }
+
+     div_mensagem.innerHTML += ` <br> <br>
+        1º QUARTIL <br>
+        TOTAL DE NÚMEROS SORTEADOS = ${total_1_quartil} <br>
+        MAIOR NÚMERO SORTEADO = ${maior_1_quartil} <br>
+        MENOR NÚMERO SORTEADO = ${menor_1_quartil} <br>
+        
+
+        <br> <br>
+        2º QUARTIL <br>
+        TOTAL DE NÚMEROS SORTEADOS = ${total_2_quartil} <br>
+        MAIOR NÚMERO SORTEADO = ${maior_2_quartil} <br>
+        MENOR NÚMERO SORTEADO = ${menor_2_quartil} <br>
+        
+        
+        <br> <br>
+        3º QUARTIL <br>
+        TOTAL DE NÚMEROS SORTEADOS = ${total_3_quartil} <br>
+        MAIOR NÚMERO SORTEADO = ${maior_3_quartil} <br>
+        MENOR NÚMERO SORTEADO = ${menor_3_quartil} <br>
+        
+        
+        <br> <br>
+        4º QUARTIL <br>
+        TOTAL DE NÚMEROS SORTEADOS = ${total_4_quartil} <br>
+        MAIOR NÚMERO SORTEADO = ${maior_4_quartil} <br>
+        MENOR NÚMERO SORTEADO = ${menor_4_quartil} <br> `
+ }
+ 
+</script>

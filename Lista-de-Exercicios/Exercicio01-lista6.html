@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+
+<body>
+
+    <!--Crie um programa o qual:
+
+    - Receba uma temperatura;
+    - Ao clicar em "analisar";
+    -- Caso a tempratura esteja entre 21 e 24,
+    exiba "Temperatura Confortável";
+
+    -- Caso contrário, exiba "Temperatura Desconfortavel"; -->
+
+    <h1>Exercicio 01</h1>
+
+    temperatura: <input type="text" id="ipt_temperatura">
+    <br>
+    <button onclick="analisar()">Analisar</button>
+
+</body>
+
+</html>
+
+<script>
+
+    function analisar() {
+        var temperatura = Number(ipt_temperatura.value);
+        var mensagem = 'Temperatura Desconfortável'
+
+        if (temperatura >= 21 && temperatura <= 24) {
+            mensagem = 'Temperatura Confortável';
+        }
+
+        alert(mensagem);
+    }
+
+
+
+
+</script>

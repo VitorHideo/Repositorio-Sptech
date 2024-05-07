@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+<body>
+
+    <h1>Exercicio 01</h1>
+
+    Nome da fruta: <input id="ipt_fruta" type="text">
+    <br>
+    <button onclick="analisar()">Vai comer?</button>
+    
+</body>
+</html>
+
+<script>
+    function analisar(){
+        var fruta = ipt_fruta.value;
+        var mensagem = `A fruta ${fruta} ela não come`
+
+        if (fruta == 'uva' || fruta == 'abacaxi') {
+            mensagem = `Sim, vai comer ${fruta}`;
+        }
+        alert (mensagem);
+    }
+</script>

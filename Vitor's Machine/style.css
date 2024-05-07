@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(simple-clean-8g9017acqfddycrl.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.card {
+    width: 300px;
+    height: 500px;
+    background: teal;
+    border: 3px solid black;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.input_decimal {
+    width: 50%;
+    height: 30px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+
+.botao {
+    width: 25%;
+    height: 30px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+.insert {
+    text-align: center;
+}
+
+.conversao {
+    text-align: center;
+}
+

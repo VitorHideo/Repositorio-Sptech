@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+<body>
+
+    <h1>Exercicio 01</h1>
+
+    valor: <input id="ipt_valor" type="text">
+    <br>
+    <button onclick="exibir()">Exibir número aleatorio</button>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function exibir () {
+        var valor = Number(ipt_valor.value);
+
+        div_mensagem.innerHTML = "";
+        
+        for (var cont = 1; cont <= valor; cont++) {
+        var aleatorio = Math.random();
+
+        if (aleatorio <= 0.5) {
+            div_mensagem.innerHTML += `${aleatorio} está na metade superior dos números <br>`;
+        } else {
+            div_mensagem.innerHTML += `${aleatorio} está na metade inferior dos números <br>`;
+        }
+     }
+}
+</script>

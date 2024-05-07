@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 20</title>
+</head>
+<body>
+
+    <h1>Exercicio 20</h1>
+
+    Quantos depositos? <input id="ipt_depositos" type="text">
+    <br>
+    Qual valor? <input id="ipt_valor" type="text">
+    <br>
+    <button onclick="acompanhar()">Acompanhar grana</button>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function acompanhar () {
+        var deposito = Number(ipt_depositos.value);
+        var valor = Number(ipt_valor.value);
+
+        for (var cont = 1; cont <= deposito; cont++) {
+
+            var calculo = valor * cont 
+            div_mensagem.innerHTML += `${cont}° Mês: R$ ${calculo} <br>`
+        }
+
+        div_mensagem.innerHTML += `Total guardado R$${calculo}`;
+    }
+
+</script>

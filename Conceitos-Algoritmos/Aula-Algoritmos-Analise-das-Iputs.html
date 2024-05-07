@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula Algoritmos</title>
+</head>
+<body>
+
+    <h1>Aula Algoritmos</h1>
+
+    Frase: <input id="ipt_frase" type="text">
+    <br>
+    <button onclick="analisar()">Analisar</button>
+    <br>
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var frase = ipt_frase.value;
+        var tamanho_frase = frase.length;
+
+        div_mensagem.innerHTML = `Quantidade caracteres: ${tamanho_frase}`;
+
+        if (tamanho_frase < 8){
+            div_mensagem.innerHTML += `<br> Não possui 8 letras`;
+        } else {
+            div_mensagem.innerHTML += `<br> Possui ao menos 8 letra`;
+        }
+
+        var comeca_com_a = frase.startsWith('a') || frase.startsWith('A');
+        div_mensagem.innerHTML += `<br> Começa com a? ${comeca_com_a}`;
+
+        var comeca_com_hashtag = frase.startsWith('#');
+        if (comeca_com_hashtag){
+            div_mensagem.innerHTML += `<br> Começa com '#'`;
+        } else {
+            div_mensagem.innerHTML += `<br> Não começa com '#'`;
+        }
+
+        var termina_com_e = frase.endsWith('e') || frase.endsWith('E');
+        div_mensagem.innerHTML += `<br> Termina com 'e'? ${termina_com_e}`;
+
+        var termina_com_com = frase.endsWith('.com');
+        div_mensagem.innerHTML += `<br> Termina com '.com'? ${termina_com_com}`;
+
+        var primeira_letra = frase[0];
+        div_mensagem.innerHTML += `<br> Primeira letra: ${primeira_letra}`;
+
+        var terceira_letra = frase[2];
+        div_mensagem.innerHTML += `<br> Terceira letra: ${terceira_letra}`;
+
+        //var ultima_posição = tamanho_frase - 1;
+        //var ultima_letra = frase[ultima_posição];
+        //div_mensagem.innerHTML += `<br> Ultima letra: ${ultima_letra}`;
+
+        var ultima_letra = frase[tamanho_frase - 1];
+        div_mensagem.innerHTML += `<br> Ultima letra: ${ultima_letra}`;
+        
+        var indice_arroba = frase.indexOf('@')
+        div_mensagem.innerHTML += `<br> Indice de @: ${indice_arroba}`;
+
+        if (indice_arroba < 0) {
+            div_mensagem.innerHTML += `<br> Não possui '@ na frase'`;
+        } else {
+            div_mensagem.innerHTML += `<br> Possui '@' no indice: ${indice_arroba}`;
+        }
+
+        var caixa_alta = frase.toUpperCase();
+        div_mensagem.innerHTML += `<br> Texto caixa alta: ${caixa_alta}`;
+
+        var caixa_baixa = frase.toLowerCase();
+        div_mensagem.innerHTML += `<br> Texto caixa baixa: ${caixa_baixa}`;
+
+        var frase_sem_espacos = frase.replaceAll(' ', '');
+        div_mensagem.innerHTML += `<br> Frase sem espaços: ${frase_sem_espacos}`;
+
+        var frase_com_arroba = frase.replace('a', '@');
+        div_mensagem.innerHTML += `<br> Frase com '@' no primeiro 'a': ${frase_com_arroba}`;
+
+    }
+</script>

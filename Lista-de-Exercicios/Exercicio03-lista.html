@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+<body>
+
+    <h1>Exercicio 3</h1>
+
+    Valor da passagem: <input id="input_passagem" type="text">  <br>
+    Quantidade de viagens: <input id="input_viagens" type="text">   <br>
+
+    <button onclick="estudadente()">Ver economia</button>
+    
+</body>
+</html>
+
+<script>
+    function estudadente(){
+        var passagem = Number(input_passagem.value);
+        var viagens = Number(input_viagens.value);
+
+        var calcular = passagem / viagens;
+
+        var mensagem = 'Você enconomizará ' + calcular + 'R$' + ' por mês';
+
+        alert (mensagem);
+    }
+
+</script>

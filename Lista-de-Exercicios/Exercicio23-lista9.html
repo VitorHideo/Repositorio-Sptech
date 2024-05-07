@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio 23 - Desafio</title>
+</head>
+<body>
+
+    <h1>Exercicio 23 - Desafio</h1>
+
+    Quantidade de elefantes: <input id="ipt_elefantes" type="text">
+    <br>
+    <button onclick="anatazar()">Atazanar médium</button>
+
+    <div id="div_mensagem"></div>
+  
+</body>
+</html>
+
+<script>
+
+  function anatazar () {
+    var elefantes = Number(ipt_elefantes.value);
+
+    for (var cont = 1; cont <= elefantes; cont+ 2) {
+      div_mensagem.innerHTML += `${cont} elefante incomoda muita gente! <br>`;
+    }
+
+  }
+</script>

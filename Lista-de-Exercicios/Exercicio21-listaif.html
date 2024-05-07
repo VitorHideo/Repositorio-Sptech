@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 21</title>
+</head>
+<body>
+
+    <h1>Exercicio 21</h1>
+
+    Quantidade de homens no elevador: <input id="inp_homem" type="text">    <br>
+    Quantidade de mulheres no elevador: <input id="inp_mulher" type="text">    <br>
+
+    <button onclick="calcular()">Ligar elevador</button>
+    <div style="color: green;" id="div_mensagem1"></div>
+    <div style="color: red;" id="div_mensagem2"></div>
+    
+</body>
+</html>
+
+<script>
+    function calcular(){
+        var qtdHomens = Number(inp_homem.value);
+        var qtdMulher = Number(inp_mulher.value);
+        var pesoHomem = qtdHomens * 90;
+        var pesoMulher = qtdMulher * 70; 
+        var pesoTotal = pesoMulher + pesoHomem;
+        var pesoAcima = pesoTotal 
+
+        if (pesoTotal >= 0) {
+            if (pesoTotal <= 500) {
+                div_mensagem1.innerHTML = 'Elevador vai se mover, pois está com ' + pesoTotal + 'Kg';
+            }}
+
+        if (pesoTotal > 500) {
+            div_mensagem2.innerHTML = 'Alguem precisa descer. Precisa perder xkg para mover o elevador';
+        }    
+    }
+</script>

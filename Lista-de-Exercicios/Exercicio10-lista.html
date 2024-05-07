@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+<body>
+    
+    <h1>Exercicio 10</h1>
+
+    Quantidade de votos candidato A: <input id="inp_candA" type="text"> <br>
+    Quantidade de votos canditao B: <input id="inp_candB" type="text"> <br>
+    Quantidade de votos brancos: <input id="inp_branco" type="text"> <br>
+    Quantidade de votos nulos: <input id="inp_nulo" type="text"> <br>
+
+    <button onclick="exibir()">Resultado da Elaição</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+
+    function exibir() {
+        var candidatoA = Number(inp_candA.value);
+        var candidatoB = Number(inp_candB.value);
+        var brancos = Number(inp_branco.value);
+        var nulos = Number(inp_nulo.value);
+
+        var total = candidatoA + candidatoB + brancos + nulos;
+        
+        var invalidos = brancos + nulos;
+        var porcenCandA = total * candidatoA / 100;
+        var porcenCandB = total * candidatoB / 100;
+        var porcenInv = total * invalidos / 100;
+        
+        div_mensagem.innerHTML = `
+        Total de votos: ${total}   <br>
+         Candidato A: ${porcenCandA}% (${candidatoA})   <br>    
+         Candidato B: ${porcenCandB}% (${candidatoB})   <br>
+         Inválidos: ${porcenInv}% (${invalidos})    <br>
+         `;
+           
+    }  
+
+    
+</script>

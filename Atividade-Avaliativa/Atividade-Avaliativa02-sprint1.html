@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa 2</title>
+</head>
+
+<body>
+
+    <h1>Atividade Avaliativa 2</h1>
+
+    Valor do salario: <input id="inp_salario" type="text"> <br>
+    Valor do adicional mensal: <input id="inp_adicional" type="text"> <br>
+    Valor do bônus: <input id="inp_bonus" type="text"> <br>
+    <button onclick="calcular()">Analisar minha renda</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+    function calcular() {
+        var salario = Number(inp_salario.value);
+        var adicional = Number(inp_adicional.value);
+        var bonus = Number(inp_bonus.value);
+
+        var bruto = salario + adicional + bonus;
+        var IR = 0;
+
+        if (bruto >= 10000) {
+            IR = bruto * 0.125;
+        }
+
+        var INSS = bruto * 0.1;
+        var FGTS = bruto * 0.08
+
+        var liquido = bruto - INSS - FGTS;
+
+
+        div_mensagem.innerHTML = `<br> ANÁLISE DA SUA RENDA <br> <br>
+            Com o salário de R$${salario}, com adicional de R$${adicional} e bônus de R$${bonus}, você tem: <br> <br>
+            Bruto: R$${bruto}  <br>
+            IR: R$${IR}  <br>
+            INSS: R$${INSS}  <br>
+            FGTS: R$${FGTS}  <br> 
+            Líquido: R$${liquido} `
+
+        var poupar = 0
+        var poparAno
+
+        if (liquido > 2500) {
+            poupar = liquido * 0.15;
+
+            if (liquido > 2500) {
+                pouparAno = poupar * 12;
+
+                if (liquido > 2500) {
+                    div_mensagem.innerHTML = div_mensagem.innerHTML + `<br> <br> Com a renda de R$${liquido}, é recomendado poupar R$${poupar}, para que em um ano tenha poupado R$${pouparAno}`
+                } } }
+
+        if (liquido <= 2500) {
+            div_mensagem.innerHTML = div_mensagem.innerHTML + `<br> <br> Com a renda de R$${liquido}, é recomendado obter renda extra para realizar uma poupança.`
+        }
+
+    }
+
+</script>

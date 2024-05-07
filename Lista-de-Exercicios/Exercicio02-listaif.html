@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Exercicio 02 - if</h1>
+    Quantas latinhas você toma por dia: <input type="text" id="inp_latas"> <br>
+    <button onclick="refri()">Quantos refris?</button>
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function refri() {
+    var latinhas = inp_latas.value;
+    var calcular = latinhas * 365;
+    
+    div_mensagem.innerHTML = `Você consome ${calcular} latinhas por ano`;
+
+        if (calcular >= 500) {
+            div_mensagem.innetHTML = 'Cuidado com a diabetes!';
+        }
+    }
+    
+</script>

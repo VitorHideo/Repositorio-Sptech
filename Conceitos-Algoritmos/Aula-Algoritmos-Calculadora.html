@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+
+    <h1>Calculadora em JS</h1>
+    Número 1: <input id="input_n1" type="text">  <br>
+    Número 2: <input id="input_n2" type="text">  <br>
+
+    <button onclick="multiplicar()">Multiplicar (*)</button>
+    <button onclick="dividir()">Dividir (/)</button>
+    <button onclick="subtrair()">Subtrair (-)</button>
+    <button onclick="somar()">Somar (+)</button>    
+</body>
+</html>
+
+<script>
+    function multiplicar(){
+        var n1 = Number(input_n1.value);
+        var n2 = Number(input_n2.value);
+        var multiplicar = n1 * n2;
+        var mensagem = n1 + ' * ' + n2 + ' = ' + multiplicar;
+
+        alert (mensagem);
+    }
+
+    function dividir (){
+        var n1 = Number(input_n1.value);
+        var n2 = Number(input_n2.value);
+        var dividir = n1 / n2;
+        var mensagem = n1 + ' / ' + n2 + ' = ' + dividir;
+
+        alert (mensagem);
+    }
+
+    function subtrair(){
+        var n1 = Number(input_n1.value);
+        var n2 = Number(input_n2.value);
+        var subtrair = n1 - n2
+        var mensagem = n1 + ' - ' + n2 + ' = ' + subtrair;
+
+        alert (mensagem);
+    }
+
+    function somar (){
+        var n1 = Number(input_n1.value);
+        var n2 = Number(input_n2.value);
+        var somar = n1 + n2;
+        var mensagem = n1 + ' + ' + n2 + ' = ' + somar;
+
+        alert (mensagem);
+    }
+
+</script>

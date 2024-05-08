@@ -34,8 +34,12 @@
         var bairro = ipt_bairro.value;
         var numero = Number(ipt_numero.value);
 
-        if (numero > bairro.length) {
+        if (numero > lista_bairro.length) {
             div_mensagem.innerHTML = `Você ainda não morou num ${numero}º bairro!`;
+        } else {
+
+            var moradia = lista_bairro[-1];
+            div_mensagem.innerHTML = `${numero}º moradia: ${moradia}`;
         }
     }
 </script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio 7</title>
+</head>
+<body>
+
+  <h3>Exercicio 7</h3>
+
+    Filme: <input type="text" id="ipt_filme">
+    <button onclick="cadastrar()">Cadastrar</button>
+    
+    <div id="div_mensagem"></div>
+  
+</body>
+</html>
+
+<script>
+    var lista_filme = [];
+
+    function cadastrar() {
+      var filme = ipt_filme.value;
+
+      lista_filme.push(filme);
+
+      div_mensagem.innerHTML = "";
+
+      for (var index = 0; index <lista_filme.length; index++) {
+        var filme_atual = lista_filme[index];
+
+        if (index % 2 == 0) {
+        div_mensagem.innerHTML += `<b style = "color: blue" >${filme_atual}</b> <br>`;
+        } else {
+        div_mensagem.innerHTML += `<b style = "color: red" >${filme_atual}</b> <br>`;
+        }
+      }
+    }
+</script>

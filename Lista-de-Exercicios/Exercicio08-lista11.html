@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio 8</title>
+</head>
+<body>
+
+    <h3>Exercicio 8</h3>
+
+    Alunos: <input type="text" id="ipt_aluno"> <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <div id="div_mensagem"></div>
+  
+</body>
+</html>
+
+<script>
+
+    var lista_aluno = [];
+
+    function cadastrar() {
+      var aluno = ipt_aluno.value;
+
+      lista_aluno.push(aluno);
+
+      div_mensagem.innerHTML = "";
+
+      for (index = 0 ;  index < lista_aluno.length ; index++) {
+        var aluno_atual = lista_aluno[index];
+
+        div_mensagem.innerHTML += `${aluno_atual} <br>`;
+      }
+    }
+</script>

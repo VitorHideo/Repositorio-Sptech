@@ -1,0 +1,193 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
+}
+
+.header {
+    border-bottom: 3px solid #32b9cd;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+.header .container {
+    justify-content: space-between;
+}
+
+.titulo {
+    color: #32b9cd;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    width: 300px;
+    justify-content: space-between;
+    color: #e3b062;
+    align-items: center;
+}
+
+.banner {
+    padding: 40px 0;
+    height: 400px;
+    color: #fff;
+    background-image: url('https://github.com/PedroRCSilva/Imagens-CCO/blob/main/imagens/bg-jelly-fish-para_outras_pags.png?raw=true');
+}
+
+.banner .container {
+    justify-content: center;
+    align-items: center;
+    height: 100%   ;
+}
+
+.banner .container p {
+    font-size: 30px;
+    width: 25%;
+}
+
+.banner .container p span {
+    font-weight: bold;
+}
+
+.social {
+    background-color: #fff;
+    padding: 40px 0;
+}
+
+.social .container {
+    justify-content: space-between;
+}
+
+.card {
+    width: 150px;
+}
+
+.card img {
+    width: 100px;
+}
+
+.card h4 {
+    font-size: 24px;
+}
+
+.footer {
+    height: 100px;
+    background-color: #32b9cd;
+}
+
+.footer .container {
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.login .container {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url('https://github.com/PedroRCSilva/Imagens-CCO/blob/main/imagens/bg-jelly-fish-para_outras_pags.png?raw=true') ;
+    background-size: cover;
+    height: 75vh;
+}
+
+.card2 {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 300px;
+    border: 2px solid #32b9cd ;
+    border-radius: 10px;
+}
+
+.card2 h2 {
+    color: palevioletred;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.campo input {
+    width: 150px;
+    height: 20px;
+    padding: 7px 15px;
+    border: 2px solid #32b9cd;
+    border-radius: 7px;
+}
+
+.formulario button{
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: palevioletred;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.cadastro .container {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url('https://github.com/PedroRCSilva/Imagens-CCO/blob/main/imagens/bg-jelly-fish-para_outras_pags.png?raw=true') ;
+    background-size: cover;
+    height: 75vh;
+}
+
+.card3 {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+    width: 380px;
+    border: 2px solid #32b9cd ;
+    border-radius: 10px;
+}
+
+.card3 h2 {
+    color: palevioletred;
+}
+
+.campo2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 7px;
+}
+
+.campo2 input {
+    width: 150px;
+    height: 20px;
+    padding: 7px 15px;
+    border: 2px solid #32b9cd;
+    border-radius: 7px;
+}
+
+
+.formulario2 button{
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: palevioletred;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.header a {
+    text-decoration: none;
+    color: #e3b062;
+    cursor: pointer;
+}
+
+.agora {
+    font-weight: 800;
+}

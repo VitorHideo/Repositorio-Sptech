@@ -26,12 +26,11 @@
 
       lista_aluno.push(aluno);
 
-      div_mensagem.innerHTML = "";
+      var tamanho_lista = lista_aluno.length;
 
-      for (index = 0 ;  index < lista_aluno.length ; index++) {
-        var aluno_atual = lista_aluno[index];
-
-        div_mensagem.innerHTML += `${aluno_atual} <br>`;
+      for (index = tamanho_lista - 1 ;  index >= 0 ; index--) {
+        div_mensagem.innerHTML += `${lista_aluno[index]} <br>`;
       }
+
     }
 </script>

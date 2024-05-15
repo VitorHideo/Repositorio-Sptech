@@ -22,11 +22,14 @@
 
 <script>
      var lista_preco = []
+     var total = 0;
 
      function cadastrar() {
+
        var preco = Number(ipt_preco.value);
 
        lista_preco.push(preco)
+       total += preco;
 
      }
 
@@ -35,10 +38,8 @@
       var tamanho_lista = lista_preco.length
 
       for (var index = tamanho_lista - 1 ; index >= 0 ; index--) {
-
         div_mensagem.innerHTML += `${lista_preco[index]}  <br>`
       }
-
 
       div_mensagem.innerHTML += `Você tem ${tamanho_lista} produtos cadastrados em estoque `;
       

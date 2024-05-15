@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio 15</title>
+</head>
+<body>
+
+  <h3>Exercicio 15</h3>
+
+  Nome do Produto: <input id="ipt_nome" type="text"> <br>
+  Preço do Produto: <input id="ipt_preco" type="text"> <br>
+
+  <button onclick="cadastrar()">Cadastrar</button>
+  <button onclick="exibir()">Relatório de estoque</button>
+
+  <div id="div_mensagem"></div>
+
+  
+</body>
+</html>
+
+<script>
+  var lista_produto = [];
+  var lista_preco = [];
+
+  function cadastrar() {
+    var produto = ipt_nome.value;
+    var preco = Number(ipt_preco.value);
+
+    lista_produto.push(produto);
+    lista_preco.push(preco);
+  }
+
+  function exibir() {
+
+    var tamanho_lista_produto = lista_produto.length;
+    var tamanho_lista_preco = lista_preco.length;
+
+    div_mensagem.innerHTML = `Total de produtos: ${tamanho_lista_produto} <br>`
+
+    var numero = 0;
+
+      for (var cont_produto = 0; cont_produto < tamanho_lista_produto; cont_produto++ ) {
+          numero ++;
+          var produto_atual = lista_produto[cont_produto];
+          div_mensagem.innerHTML += `Produto ${numero} : ${produto_atual} <br>`;
+
+          for (var cont_preco = 0; cont_preco < tamanho_lista_preco; cont_preco++ ) {
+          var preco_atual = lista_preco[cont_preco];
+          var preco_venda = preco_atual * 0.25;
+          div_mensagem.innerHTML += `Preço da compra:R$${preco_atual}. Vender por:R${preco_venda} <br>`;
+        }
+
+      }
+
+
+
+  }
+
+  //     for (var index = 1; index <= tamanho_lista_produto; index++) {
+
+</script>
+

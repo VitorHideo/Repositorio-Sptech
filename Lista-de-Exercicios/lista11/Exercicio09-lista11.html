@@ -37,7 +37,7 @@
 
     div_mensagem.innerHTML = "";
 
-    for (index = 0; index < lista_projeto.length; index++) {
+    for (var index = 0; index < lista_projeto.length; index++) {
   
       div_mensagem.innerHTML = `Você já fez ${lista_projeto.length} projetos. Por isso você é um profissional ${nivel}  `
     }
@@ -46,11 +46,11 @@
   function mostrar () {
     var tamanho_lista = lista_projeto.length;
 
-    for (index = 0; index < tamanho_lista; index++) {
+    for (var index = tamanho_lista - 1; index >= 0; index--) {
     
       var projeto_atual = lista_projeto[index];
     
-      div_mensagem.innerHTML = `${projeto_atual} <br>`;
+      div_mensagem.innerHTML += `<br>${projeto_atual}`;
 
     }
 

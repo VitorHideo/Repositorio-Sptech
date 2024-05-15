@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio 10</title>
+</head>
+
+<body>
+
+  <h3>Exercicio 10</h3>
+
+  Nome da linha: <input type="text" id="ipt_linha"> 
+  <button onclick="registrar()">Registrar Busão</button>
+  <br>
+  Pesquisar: <input type="text" id="ipt_pesquisa"> 
+  <button onclick="pesquisar()">Pesquisar</button>
+
+  <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+  var lista_linha = [];
+  
+
+  function registrar() {
+    var linha = ipt_linha.value;
+
+    lista_linha.push(linha);
+
+    var tamanho_lista = lista_linha.length;
+
+    div_mensagem.innerHTML = "";
+
+    for (index = tamanho_lista - 1; index >= 0; index--) {
+      var linha_atual = lista_linha[index];
+      div_mensagem.innerHTML += `<br>${linha_atual} `;
+    }
+  }
+
+  function pesquisar() {
+
+    var pesquisa = ipt_pesquisa.value;
+
+    var indexPesquisa = lista_linha.indexOf(pesquisa)
+
+
+    if (indexPesquisa < 0) {
+      div_mensagem.innerHTML += `<br>Você nunca pegou essa linha`;
+
+    } else {
+      var lista_encontrados = [];
+      
+      for (var index = 0 ;  index < lista_linha ; index++) {
+        var linha_atual = lista_linha[index];
+
+        if (linha_atual == pesquisa) {
+          lista_encontrados.push(index + 1);
+          
+        }
+
+      }
+      div_mensagem.innerHTML = `Você já pegou essa linha ${lista_encontrados.length} vezes, nessa ordem: ${lista_encontrados} <br>`;
+    }
+
+  }
+  
+
+
+</script>

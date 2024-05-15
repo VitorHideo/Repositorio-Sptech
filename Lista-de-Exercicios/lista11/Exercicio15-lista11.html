@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Exercicio 15</title>
 </head>
+
 <body>
 
   <h3>Exercicio 15</h3>
@@ -17,8 +19,9 @@
 
   <div id="div_mensagem"></div>
 
-  
+
 </body>
+
 </html>
 
 <script>
@@ -38,28 +41,26 @@
     var tamanho_lista_produto = lista_produto.length;
     var tamanho_lista_preco = lista_preco.length;
 
-    div_mensagem.innerHTML = `Total de produtos: ${tamanho_lista_produto} <br>`
+    div_mensagem.innerHTML = `<br>Total de produtos: ${tamanho_lista_produto} <br><br>`
 
     var numero = 0;
 
-      for (var cont_produto = 0; cont_produto < tamanho_lista_produto; cont_produto++ ) {
-          numero ++;
-          var produto_atual = lista_produto[cont_produto];
-          div_mensagem.innerHTML += `Produto ${numero} : ${produto_atual} <br>`;
+    for (var index = 0; index < tamanho_lista_produto && tamanho_lista_preco; index++) {
 
-          for (var cont_preco = 0; cont_preco < tamanho_lista_preco; cont_preco++ ) {
-          var preco_atual = lista_preco[cont_preco];
-          var preco_venda = preco_atual * 0.25;
-          div_mensagem.innerHTML += `Preço da compra:R$${preco_atual}. Vender por:R${preco_venda} <br>`;
-        }
+      numero++
+      var produto_atual = lista_produto[index];
 
-      }
+      var preco_atual = lista_preco[index];
 
+      var preco_venda = (preco_atual * 1.25);
 
+      div_mensagem.innerHTML += `Produto ${numero}: ${produto_atual} <br>
+      Preço de compra: R$${preco_atual}. Vender por: R$${preco_venda} <br><br>`;
+  
+    }
 
   }
 
-  //     for (var index = 1; index <= tamanho_lista_produto; index++) {
 
 </script>
 

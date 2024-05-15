@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio 15</title>
+</head>
+
+<body>
+
+  <h3>Exercicio 15</h3>
+
+  Nome do Produto: <input id="ipt_nome" type="text"> <br>
+  Preço do Produto: <input id="ipt_preco" type="text"> <br>
+
+  <button onclick="cadastrar()">Cadastrar</button>
+  <button onclick="exibir()">Relatório de estoque</button>
+
+  <div id="div_mensagem"></div>
+
+
+</body>
+
+</html>
+
+<script>
+  var lista_produto = [];
+  var lista_preco = [];
+
+  function cadastrar() {
+    var produto = ipt_nome.value;
+    var preco = Number(ipt_preco.value);
+
+    lista_produto.push(produto);
+    lista_preco.push(preco);
+  }
+
+  function exibir() {
+
+    var tamanho_lista_produto = lista_produto.length;
+    var tamanho_lista_preco = lista_preco.length;
+
+    var numero = 0;
+
+    var soma_precos = 0;
+    var soma_precos_venda = 0;
+    var produto_mais_caro = "";
+    var produto_mais_barato = "";
+    var preco_mais_caro = 0;
+    var preco_mais_barato = 0;
+
+    div_mensagem.innerHTML = `<br>Total de produtos: ${tamanho_lista_produto} <br><br>`
+
+    for (var index = 0; index < tamanho_lista_produto && tamanho_lista_preco; index++) {
+
+      numero++
+      var produto_atual = lista_produto[index];
+
+      var preco_atual = lista_preco[index];
+
+      var preco_venda = (preco_atual * 1.25);
+
+      soma_precos += preco_atual;
+      soma_precos_venda += preco_venda;
+
+      if (preco_atual > preco_mais_caro) {
+        preco_mais_caro = preco_atual;
+        produto_mais_caro = produto_atual;
+      }
+
+      if (preco_atual < preco_mais_barato) {
+        preco_mais_barato = preco_atual;
+        produto_mais_barato = produto_atual;
+      }
+
+
+      div_mensagem.innerHTML += `Produto ${numero}: ${produto_atual} <br>
+      Preço de compra: R$${preco_atual}. Vender por: R$${preco_venda} <br><br>`;
+  
+    }
+
+    var media_precos_venda = (soma_precos_venda / tamanho_lista_produto)
+
+    div_mensagem.innerHTML += `<br>
+      Produto mais caro: ${produto_mais_caro} <br>
+      Produto mais barato: ${produto_mais_barato} <br>
+      Soma do preço da compra: R$${soma_precos} <br>
+      Média do preco de vendas: R$${media_precos_venda}`;
+
+  }
+
+
+</script>
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa - Sprint 3</title>
+</head>
+
+<body>
+
+    <h2>Atividade Hamburgueria</h2>
+
+    <div class="ocultar">
+    Ingrediente: <input id="ipt_ingrediente" type="text">
+    <br>
+    Peso em gramas: <input id="ipt_peso" type="text">
+    <br>
+    Preço por kilo: <input id="ipt_preco" type="text">
+    <br>
+    <button onclick="adicionar()">Adicionar Ingrediente no Blend</button>
+    <br><br>
+    Nome do Hamburguer: <input id="ipt_nome" type="text">
+    <br>
+    <button onclick="registrar()">Preparar Blend e Registrar</button>
+    <br><br>
+    <button onclick="montar()">Montar Cardápio</button>
+    <span></span>
+    <div id="div_mensagem"></div>
+    </div>
+
+    <div class="aparecer">
+    Tipo de Hamburguer: <input id="ipt_tipo" type="text">
+    Quantidade de Hamburguer: <input id="ipt_qtd" type="text">
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    var lista_ingrediente = [];
+    var lista_peso = [];
+    var lista_preco = [];
+    var lista_nome = [];
+    var lista_preco_final_total = [];
+
+    function adicionar() {
+        var ingrediente = ipt_ingrediente.value;
+        var peso = Number(ipt_peso.value);
+        var preco = Number(ipt_preco.value);
+
+        lista_ingrediente.push(ingrediente);
+        lista_peso.push(peso);
+        lista_preco.push(preco);
+
+        var tamanho_lista_ingrediente = lista_ingrediente.length;
+        div_mensagem.innerHTML = "";
+
+        if (ingrediente == '' || peso == '' || preco == '') {
+            div_mensagem.innerHTML += `<br><span style = "color: red">Preencha todos os campos para prosseguir!</span> <br>`;
+        } else {
+            div_mensagem.innerHTML += `<span style = "color: green">Adicionados ${peso} gramas de "${ingrediente}" no blend do hamburguer.</span>`;
+        }
+        /*  Validação para não adicionar ingrediente repetido       for (index = 1; index <= tamanho_lista_ingrediente; index++ ) {
+            var ingrediente_atual = lista_ingrediente[index];
+        
+            if (ingrediente == ingrediente_atual) {
+                div_mensagem.innerHTML += `<span style = "color: red">O ingrediente "${ingrediente}" ja foi adicionado nesta mistura!</span> `
+            }
+        } */
+    }
+
+    function registrar() {
+        var nome = ipt_nome.value;
+
+        lista_nome.push(nome);
+
+        var tamanho_lista_ingrediente = lista_ingrediente.length;
+        //var tamanho_lista_nome = lista_nome.length;
+
+        var cont = 0
+
+        div_mensagem.innerHTML = "";
+
+        if (tamanho_lista_ingrediente > 1 && nome == '') {
+            div_mensagem.innerHTML += `<br><span style = "color: red">Informe o nome do novo hamburguer.</span> <br>`;
+        } else if (tamanho_lista_ingrediente <= 1) {
+            div_mensagem.innerHTML += `<br><span style = "color: red">Adicione ao menos 2 ingredientes para o blend do hamburguer.</span> <br>`;
+        } else {
+
+            div_mensagem.innerHTML += `<br><b>Preparando novo hamburguer</b> <br>`
+            for (index = 0; index < tamanho_lista_ingrediente; index++) {
+                cont++
+                var ingrediente_atual = lista_ingrediente[index];
+                var preco_atual = lista_preco[index];
+                var peso_atual = lista_peso[index];
+
+                var preco_final = (peso_atual * preco_atual) / 1000;
+
+                div_mensagem.innerHTML += `${cont} – Ingrediente: <b>${ingrediente_atual}</b> – Peso: <b>${peso_atual}</b> - Preço KG: <b>${preco_atual}</b> - Preço Final: <b>${preco_final}</b> <br>  `;
+                lista_preco_final_total.push(preco_final);
+            }
+
+            var peso_total = 0
+            var preco_total = 0
+
+            for (i = 0; i < tamanho_lista_ingrediente; i ++) {
+                peso_total += lista_peso[i];
+                preco_total += lista_preco_final_total[i];
+            }
+
+            div_mensagem.innerHTML += `<br><b>Informações do Hamburguer criado:</b> <br>
+            Nome: <b>${nome}</b> <br>
+            Peso Total: <b>${peso_total}</b> <br>
+            Preço Total: <b>${preco_total}</b> <br>`
+
+        }
+
+    }
+
+    function montar() {
+
+        if (lista_ingrediente.length >= 1) {
+            div_mensagem.innerHTML += `<span style = "color: red">Adicione ao menos um novo blend de hamburguer para prosseguir.</span> <br>`;
+        }
+    }
+</script>

@@ -24,15 +24,17 @@ table {
 
 
 tr {
-    border: 1px #1F618D solid;
+    border: 1px #0b121c solid;
+    background-color: #0b121c;
 }
 
 td {
-    border: 1px #1F618D solid;
+    border: 1px #0b121c solid;
     width: 30px;
     height: 30px;
     text-align: center;
     vertical-align: center;
+    background-color: #0b121c;
 }
 
 button {
@@ -51,6 +53,8 @@ button {
 
 #div_game {
     background-color: #ffffff;
+    border: 2px #000 solid;
+    border-radius: 20px;
     margin: auto;
     width: 800px;
     height: 800px;
@@ -83,7 +87,7 @@ button {
 }
 
 .deadCell {
-    background-color: #1F618D;
+    background-color: #000;
 }
 
 .availableCell {

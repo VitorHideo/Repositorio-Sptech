@@ -26,14 +26,43 @@
     <br><br>
     <button onclick="montar()">Montar Cardápio</button>
     <span></span>
-    <div id="div_mensagem"></div>
     </div>
 
-    <div class="aparecer">
+    <div class="aparecer" style="display: none;">
     Tipo de Hamburguer: <input id="ipt_tipo" type="text">
+    <br>
     Quantidade de Hamburguer: <input id="ipt_qtd" type="text">
-
+    <br>
+    Queijo: <select id="select_queijo">
+        <option selected disabled value="0">Selecione uma opção</option>
+        <option value="sem_queijo">Sem queijo</option>
+        <option value="mussarela">Mussarela</option>
+        <option value="prato">Prato</option>
+        <option value="cheddar">Cheddar</option>
+    </select>
+    <br>
+    Cebola: <select id="select_cebola">
+        <option selected disabled value="0">Selecione uma opção</option>
+        <option value="sim_cebola">Sim</option>
+        <option value="nao_cebola">Não</option>
+    </select>
+    <br>
+    Alface: <select id="select_alface">
+        <option selected disabled value="0">Selecione uma opção</option>
+        <option value="sim_alface">Sim</option>
+        <option value="nao_alface">Não</option>
+    </select>
+    <br>
+    Tomate: <select id="select_tomate">
+        <option selected disabled value="0">Selecione uma opção</option>
+        <option value="sim_tomate">Sim</option>
+        <option value="nao_tomate">Não</option>
+    </select>
+    <br>
+    <button onclick="adicionar()">Adicionar Lanche</button>
     </div>
+
+    <div id="div_mensagem"></div>
 
 </body>
 
@@ -122,9 +151,16 @@
     }
 
     function montar() {
+        var ocultar = document.querySelector('.ocultar');
+        var aparecer = document.querySelector('.aparecer');
 
+        div_mensagem.innerHTML = "";
         if (lista_ingrediente.length >= 1) {
-            div_mensagem.innerHTML += `<span style = "color: red">Adicione ao menos um novo blend de hamburguer para prosseguir.</span> <br>`;
+            ocultar.style.display = 'none';
+            aparecer.style.display = 'block';
+            
+        } else {
+            div_mensagem.innerHTML += `<span style = "color:red">Adicione ao menos um novo blend de hamburguer para prosseguir.</span> <br>`;
         }
     }
 </script>

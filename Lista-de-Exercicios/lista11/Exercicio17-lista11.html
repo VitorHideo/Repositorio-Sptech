@@ -1,29 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 17</title>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Nome do Produto: <input type="text" id="input_produto" /> <br />
+    <!-- Quantidade Venda: <input type="text" id="input_qtd_produto"> <br>
+    Quantidade Compra: <input type="text" id="input_qtd_produto"> <br> -->
+    Quantidade: <input type="text" id="input_qtd_produto" /> <br />
+    <!-- Tipo de Ação: <select id="">
+        <option>comprar</option>
+        <option>vender</option>
+        <button>Atualizar Estoque</button>
+    </select> <br> -->
 
-    <h3>Exercicio 17</h3>
-    
-    <h5>Compra</h5>
-    Nome do Produto: <input id="ipt_compra" type="text">
-    <br>
-    Quantidade: <input id="ipt_qtdcompra" type="text">
-    <br>
-    <button onclick="cadastrar_compra()">Cadastrar Compra</button>
-
-    <h5>Venda</h5>
-    Nome do Produto: <input id="ipt_venda" type="text"> 
-    <br>
-    Quantidade: <input id="ipt_qtdvenda" type="text">
-    <br>
-    <button onclick="cadastrar_venda()">Cadastrar Venda</button>
-
+    <button onclick="comprar()">Comprar</button>
+    <button onclick="vender()">Vender</button>
     <div id="div_mensagem"></div>
-    
-</body>
+  </body>
 </html>
+
+<script>
+  var lista_produtos = [];
+  var lista_quantidades = [];
+
+  function comprar() {
+    var nome_produto = input_produto.value;
+    var qtd_produto = Number(input_qtd_produto.value);
+
+    var indice_produto = lista_produtos.indexOf(nome_produto);
+
+    if (indice_produto == -1) {
+      lista_produtos.push(nome_produto);
+      lista_quantidades.push(qtd_produto);
+      div_mensagem.innerHTML = `Estoque atualizado! Produto: ${nome_produto} | Quantidade: ${qtd_produto}`;
+    } else {
+      lista_quantidades[indice_produto] += qtd_produto;
+      div_mensagem.innerHTML = `Estoque atualizado! Produto: ${nome_produto} | Quantidade: ${lista_quantidades[indice_produto]}`;
+
+      // for (var index = 0; index < lista_quantidades.length; index++) {
+      //     if (index == indice_produto) {
+      //         lista_quantidades[index] += qtd_produto;
+      //     }
+      // }
+    }
+  }
+
+  function vender() {
+    var nome_produto = input_produto.value;
+    var qtd_produto = Number(input_qtd_produto.value);
+
+    var indice_produto = lista_produtos.indexOf(nome_produto);
+
+    if (indice_produto == -1) {
+      div_mensagem.innerHTML = "Produto não existe no estoque!";
+    } else if (qtd_produto < lista_quantidades[indice_produto]) {
+      lista_quantidades[indice_produto] -= qtd_produto;
+      div_mensagem.innerHTML = `Estoque atualizado! Produto: ${nome_produto} | Quantidade: ${lista_quantidades[indice_produto]}`;
+    } else {
+      div_mensagem.innerHTML = "Não temos essa quantidade no estoque!";
+    }
+  }
+</script>

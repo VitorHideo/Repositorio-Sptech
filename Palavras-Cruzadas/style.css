@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #0b121c;
-    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(#34286b, #272042);
+    font-family: "Poppins", sans-serif;
 }
+
 
 header h1 {
     text-align: center;
@@ -52,12 +55,12 @@ button {
 }
 
 #div_game {
-    background-color: #ffffff;
+    background: linear-gradient(#34286b, #272042);
     border: 2px #000 solid;
     border-radius: 20px;
     margin: auto;
-    width: 800px;
-    height: 800px;
+    width: auto;
+    height: auto;
 }
 
 #div_questions {
@@ -66,7 +69,9 @@ button {
     background-color: #0b121c;
     width: 700px;
     height: 80px;
-    margin: auto;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .button {
@@ -95,7 +100,7 @@ button {
 }
 
 footer {
-    height: 80px;
+    height: auto;
     background-color: #2C3E50;
     color: #ffffff;
     font-size: 15px;
@@ -111,9 +116,12 @@ footer p {
 
 #div_information {
     width: 500px;
+    border: 1px #000 solid;
+    border-radius: 20px;
     margin: auto;
-    background-color: #85C1E9;
+    background-color:#221d38;
     font-size: 20px;
+    color: white
 }
 
 

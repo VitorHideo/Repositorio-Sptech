@@ -12,54 +12,54 @@
     <h2>Atividade Hamburgueria</h2>
 
     <div class="ocultar">
-    Ingrediente: <input id="ipt_ingrediente" type="text">
-    <br>
-    Peso em gramas: <input id="ipt_peso" type="text">
-    <br>
-    Preço por kilo: <input id="ipt_preco" type="text">
-    <br>
-    <button onclick="adicionar()">Adicionar Ingrediente no Blend</button>
-    <br><br>
-    Nome do Hamburguer: <input id="ipt_nome" type="text">
-    <br>
-    <button onclick="registrar()">Preparar Blend e Registrar</button>
-    <br><br>
-    <button onclick="montar()">Montar Cardápio</button>
-    <span></span>
+        Ingrediente: <input id="ipt_ingrediente" type="text">
+        <br>
+        Peso em gramas: <input id="ipt_peso" type="text">
+        <br>
+        Preço por kilo: <input id="ipt_preco" type="text">
+        <br>
+        <button onclick="adicionar()">Adicionar Ingrediente no Blend</button>
+        <br><br>
+        Nome do Hamburguer: <input id="ipt_nome" type="text">
+        <br>
+        <button onclick="registrar()">Preparar Blend e Registrar</button>
+        <br><br>
+        <button onclick="montar()">Montar Cardápio</button>
+        <span></span>
     </div>
 
     <div class="aparecer" style="display: none;">
-    Tipo de Hamburguer: <input id="ipt_tipo" type="text">
-    <br>
-    Quantidade de Hamburguer: <input id="ipt_qtd" type="text">
-    <br>
-    Queijo: <select id="select_queijo">
-        <option selected disabled value="0">Selecione uma opção</option>
-        <option value="sem_queijo">Sem queijo</option>
-        <option value="mussarela">Mussarela</option>
-        <option value="prato">Prato</option>
-        <option value="cheddar">Cheddar</option>
-    </select>
-    <br>
-    Cebola: <select id="select_cebola">
-        <option selected disabled value="0">Selecione uma opção</option>
-        <option value="sim_cebola">Sim</option>
-        <option value="nao_cebola">Não</option>
-    </select>
-    <br>
-    Alface: <select id="select_alface">
-        <option selected disabled value="0">Selecione uma opção</option>
-        <option value="sim_alface">Sim</option>
-        <option value="nao_alface">Não</option>
-    </select>
-    <br>
-    Tomate: <select id="select_tomate">
-        <option selected disabled value="0">Selecione uma opção</option>
-        <option value="sim_tomate">Sim</option>
-        <option value="nao_tomate">Não</option>
-    </select>
-    <br>
-    <button onclick="adicionar()">Adicionar Lanche</button>
+        Tipo de Hamburguer: <input id="ipt_tipo" type="text">
+        <br>
+        Quantidade de Hamburguer: <input id="ipt_qtd" type="text">
+        <br>
+        Queijo: <select id="select_queijo">
+            <option selected disabled value="0">Selecione uma opção</option>
+            <option value="Sem Queijo">Sem queijo</option>
+            <option value="Mussarela">Mussarela</option>
+            <option value="Prato">Prato</option>
+            <option value="Cheddar">Cheddar</option>
+        </select>
+        <br>
+        Cebola: <select id="select_cebola">
+            <option selected disabled value="0">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+        <br>
+        Alface: <select id="select_alface">
+            <option selected disabled value="0">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+        <br>
+        Tomate: <select id="select_tomate">
+            <option selected disabled value="0">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+        <br>
+        <button onclick="finalizar()">Adicionar Lanche</button>
     </div>
 
     <div id="div_mensagem"></div>
@@ -129,22 +129,22 @@
 
                 var preco_final = (peso_atual * preco_atual) / 1000;
 
-                div_mensagem.innerHTML += `${cont} – Ingrediente: <b>${ingrediente_atual}</b> – Peso: <b>${peso_atual}</b> - Preço KG: <b>${preco_atual}</b> - Preço Final: <b>${preco_final}</b> <br>  `;
+                div_mensagem.innerHTML += `${cont} – Ingrediente: <b>${ingrediente_atual}</b> – Peso: <b>${peso_atual}</b>KG - Preço KG: <b>${preco_atual}</b>R$ - Preço Final: <b>${preco_final}</b>R$ <br>  `;
                 lista_preco_final_total.push(preco_final);
             }
 
             var peso_total = 0
             var preco_total = 0
 
-            for (i = 0; i < tamanho_lista_ingrediente; i ++) {
+            for (i = 0; i < tamanho_lista_ingrediente; i++) {
                 peso_total += lista_peso[i];
                 preco_total += lista_preco_final_total[i];
             }
 
             div_mensagem.innerHTML += `<br><b>Informações do Hamburguer criado:</b> <br>
             Nome: <b>${nome}</b> <br>
-            Peso Total: <b>${peso_total}</b> <br>
-            Preço Total: <b>${preco_total}</b> <br>`
+            Peso Total: <b>${peso_total}</b>KG <br>
+            Preço Total: <b>${preco_total}</b>R$ <br>`
 
         }
 
@@ -158,9 +158,78 @@
         if (lista_ingrediente.length >= 1) {
             ocultar.style.display = 'none';
             aparecer.style.display = 'block';
-            
+
         } else {
             div_mensagem.innerHTML += `<span style = "color:red">Adicione ao menos um novo blend de hamburguer para prosseguir.</span> <br>`;
         }
+
+    }
+
+    function finalizar() {
+        var tipo = ipt_tipo.value;
+        var qtd = Number(ipt_qtd.value);
+        var queijo = select_queijo.value;
+        var cebola = select_cebola.value;
+        var alface = select_alface.value;
+        var tomate = select_tomate.value;
+
+        div_mensagem.innerHTML = "";
+
+
+        if (tipo == '' || qtd == '') {
+            div_mensagem.innerHTML += `<span style = "color:red">Informe corretamente o tipo do hamburguer e a quantidade.</span> <br>`;
+        } else if (lista_nome.indexOf(tipo) < 0) {
+            div_mensagem.innerHTML += `<span style = "color:red">O hamburguer '${tipo}' não existe no catálogo de hamburgueres.</span> <br>`
+        } else if (qtd <= 0) {
+            div_mensagem.innerHTML += `<span style = "color:red">O lanche tem que ter ao menos 1 hamburguer</span> <br>`
+        }
+
+        if (queijo == 'Sem Queijo') {
+            var preco_queijo = 0;
+        } else if (queijo == 'Mussarela') {
+            preco_queijo = 2;
+        } else if (queijo == 'Prato') {
+            preco_queijo = 2.5;
+        } else if (queijo == 'Cheddar') {
+            preco_queijo = 3;
+        } else if (cebola == 'Sim') {
+            var preco_cebola = 1.5
+        } else if (cebola == 'Não') {
+            preco_cebola = 0;
+        } else if (alface == 'Sim') {
+            var preco_alface = 1.75;
+        } else if (alface == 'Não') {
+            preco_alface = 0;
+        } else if (tomate == 'Sim') {
+            var preco_tomate = 2;
+        } else if (tomate == 'Não') {
+            preco_tomate = 0;
+        }
+
+        var preco_total = 0
+        var peso_total = 0
+
+        var tamanho_lista_ingrediente = lista_ingrediente.length;
+
+        for (i = 0; i < tamanho_lista_ingrediente; i++) {
+            preco_total += lista_preco_final_total[i];
+            peso_total += lista_peso[i];
+            var preco_atual = lista_preco[i];
+            var peso_atual = lista_peso[i];
+            var preco_final = (peso_atual * preco_atual) / 1000;
+            var preco_hamburguer = preco_final * qtd;
+        }
+
+        var preco_total_final = preco_total + preco_cebola + preco_queijo + preco_tomate + preco_alface + preco_hamburguer;
+
+        div_mensagem.innerHTML += `<br> Tipo Hamburguer:<b>${tipo}</b>(<b>${peso_total}</b>g / R$${preco_total}) <br>
+         Quantidade de Hamburgueres: <b>${qtd}</b>x <br>
+         Queijo: <b>${queijo}</b> <br> 
+         Cebola: <b>${cebola}</b> <br> 
+         Alface: <b>${alface}</b> <br>
+         Tomate: <b>${tomate}</b> <br> <br>
+         Preço Final do Lanche: R$<b>${preco_total_final}</b>`;
+
+
     }
 </script>

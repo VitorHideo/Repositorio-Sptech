@@ -175,6 +175,10 @@
 
         div_mensagem.innerHTML = "";
 
+        var preco_queijo = 0;
+        var preco_cebola = 0;
+        var preco_alface = 0;
+        var preco_tomate = 0;
 
         if (tipo == '' || qtd == '') {
             div_mensagem.innerHTML += `<span style = "color:red">Informe corretamente o tipo do hamburguer e a quantidade.</span> <br>`;
@@ -182,27 +186,33 @@
             div_mensagem.innerHTML += `<span style = "color:red">O hamburguer '${tipo}' não existe no catálogo de hamburgueres.</span> <br>`
         } else if (qtd <= 0) {
             div_mensagem.innerHTML += `<span style = "color:red">O lanche tem que ter ao menos 1 hamburguer</span> <br>`
-        }
-
-        if (queijo == 'Sem Queijo') {
-            var preco_queijo = 0;
+        } else {
+        
+            if (queijo == 'Sem Queijo') {
+            preco_queijo = 0;
         } else if (queijo == 'Mussarela') {
             preco_queijo = 2;
         } else if (queijo == 'Prato') {
             preco_queijo = 2.5;
         } else if (queijo == 'Cheddar') {
             preco_queijo = 3;
-        } else if (cebola == 'Sim') {
-            var preco_cebola = 1.5
-        } else if (cebola == 'Não') {
+        }
+
+        if (cebola == 'Sim') {
+            preco_cebola = 1.5;
+        } else {
             preco_cebola = 0;
-        } else if (alface == 'Sim') {
-            var preco_alface = 1.75;
-        } else if (alface == 'Não') {
+        }
+
+        if (alface == 'Sim') {
+            preco_alface = 1.75;
+        } else {
             preco_alface = 0;
-        } else if (tomate == 'Sim') {
-            var preco_tomate = 2;
-        } else if (tomate == 'Não') {
+        }
+
+        if (tomate == 'Sim') {
+            preco_tomate = 2;
+        } else {
             preco_tomate = 0;
         }
 
@@ -214,15 +224,12 @@
         for (i = 0; i < tamanho_lista_ingrediente; i++) {
             preco_total += lista_preco_final_total[i];
             peso_total += lista_peso[i];
-            var preco_atual = lista_preco[i];
-            var peso_atual = lista_peso[i];
-            var preco_final = (peso_atual * preco_atual) / 1000;
-            var preco_hamburguer = preco_final * qtd;
         }
 
+        var preco_hamburguer = preco_total * qtd;
         var preco_total_final = preco_total + preco_cebola + preco_queijo + preco_tomate + preco_alface + preco_hamburguer;
 
-        div_mensagem.innerHTML += `<br> Tipo Hamburguer:<b>${tipo}</b>(<b>${peso_total}</b>g / R$${preco_total}) <br>
+        div_mensagem.innerHTML += `<br> Tipo Hamburguer: <b>${tipo}</b>(<b>${peso_total}</b>g / R$<b>${preco_total}</br>) <br>
          Quantidade de Hamburgueres: <b>${qtd}</b>x <br>
          Queijo: <b>${queijo}</b> <br> 
          Cebola: <b>${cebola}</b> <br> 
@@ -230,6 +237,7 @@
          Tomate: <b>${tomate}</b> <br> <br>
          Preço Final do Lanche: R$<b>${preco_total_final}</b>`;
 
+        }
 
     }
 </script>

@@ -93,13 +93,6 @@
         } else {
             div_mensagem.innerHTML += `<span style = "color: green">Adicionados ${peso} gramas de "${ingrediente}" no blend do hamburguer.</span>`;
         }
-        /*  Validação para não adicionar ingrediente repetido       for (index = 1; index <= tamanho_lista_ingrediente; index++ ) {
-            var ingrediente_atual = lista_ingrediente[index];
-        
-            if (ingrediente == ingrediente_atual) {
-                div_mensagem.innerHTML += `<span style = "color: red">O ingrediente "${ingrediente}" ja foi adicionado nesta mistura!</span> `
-            }
-        } */
     }
 
     function registrar() {
@@ -108,7 +101,6 @@
         lista_nome.push(nome);
 
         var tamanho_lista_ingrediente = lista_ingrediente.length;
-        //var tamanho_lista_nome = lista_nome.length;
 
         var cont = 0
 

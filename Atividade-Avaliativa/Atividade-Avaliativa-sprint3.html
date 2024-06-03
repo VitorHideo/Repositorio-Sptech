@@ -11,7 +11,7 @@
 
     <h2>Atividade Hamburgueria</h2>
 
-    <div class="ocultar">
+    <div id="ocultar">
         Ingrediente: <input id="ipt_ingrediente" type="text">
         <br>
         Peso em gramas: <input id="ipt_peso" type="text">
@@ -28,7 +28,7 @@
         <span></span>
     </div>
 
-    <div class="aparecer" style="display: none;">
+    <div id="aparecer" style="display: none;">
         Tipo de Hamburguer: <input id="ipt_tipo" type="text">
         <br>
         Quantidade de Hamburguer: <input id="ipt_qtd" type="text">
@@ -90,6 +90,8 @@
 
         if (ingrediente == '' || peso == '' || preco == '') {
             div_mensagem.innerHTML += `<br><span style = "color: red">Preencha todos os campos para prosseguir!</span> <br>`;
+        } else if (ingrediente == lista_ingrediente.indexOf(ingrediente) <= 1) {
+            div_mensagem.innerHTML += `<br><span style = "color: red">O ingrediente ${ingrediente} já foi adicionado ao blend!</span> <br>`;
         } else {
             div_mensagem.innerHTML += `<span style = "color: green">Adicionados ${peso} gramas de "${ingrediente}" no blend do hamburguer.</span>`;
         }
@@ -101,9 +103,7 @@
         lista_nome.push(nome);
 
         var tamanho_lista_ingrediente = lista_ingrediente.length;
-
-        var cont = 0
-
+        
         div_mensagem.innerHTML = "";
 
         if (tamanho_lista_ingrediente > 1 && nome == '') {
@@ -114,14 +114,13 @@
 
             div_mensagem.innerHTML += `<br><b>Preparando novo hamburguer</b> <br>`
             for (index = 0; index < tamanho_lista_ingrediente; index++) {
-                cont++
                 var ingrediente_atual = lista_ingrediente[index];
                 var preco_atual = lista_preco[index];
                 var peso_atual = lista_peso[index];
 
                 var preco_final = (peso_atual * preco_atual) / 1000;
 
-                div_mensagem.innerHTML += `${cont} – Ingrediente: <b>${ingrediente_atual}</b> – Peso: <b>${peso_atual}</b>KG - Preço KG: <b>${preco_atual}</b>R$ - Preço Final: <b>${preco_final}</b>R$ <br>  `;
+                div_mensagem.innerHTML += `${index + 1} – Ingrediente: <b>${ingrediente_atual}</b> – Peso: <b>${peso_atual}</b>KG - Preço KG: <b>${preco_atual}</b>R$ - Preço Final: <b>${preco_final}</b>R$ <br>  `;
                 lista_preco_final_total.push(preco_final);
             }
 
@@ -143,8 +142,6 @@
     }
 
     function montar() {
-        var ocultar = document.querySelector('.ocultar');
-        var aparecer = document.querySelector('.aparecer');
 
         div_mensagem.innerHTML = "";
         if (lista_ingrediente.length >= 1) {

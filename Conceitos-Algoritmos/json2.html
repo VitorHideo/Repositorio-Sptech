@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Nome: <input type="text" id="input_nome"> <br>
+    Idade: <input type="text" id="input_idade"> <br>
+    CPF: <input type="text" id="input_cpf"> <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function cadastrar() {
+
+        const nome = input_nome.value;
+        const idade = input_idade.value;
+        const cpf = input_cpf.value;
+
+        const pessoa = {
+            nome,
+            idade,
+            cpf,
+        }
+        
+        console.log(pessoa);
+
+        div_mensagem.innerHTML = `
+        Nome: ${pessoa.nome} <br>
+        Idade: ${pessoa.idade} <br>
+        CPF: ${pessoa.cpf} <br>`
+    }
+
+</script>

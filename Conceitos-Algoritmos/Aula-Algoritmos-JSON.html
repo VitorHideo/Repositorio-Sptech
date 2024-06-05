@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    const pessoa = {
+        nome: "Fulano", 
+        idade: 25,
+        cpf: "111.222.333-44",
+        altura: 1.8,
+        cor_cabelo: "Castanho",
+        peso: "80"
+    }
+
+    console.log(pessoa);
+    div_mensagem.innerHTML = pessoa.nome;
+
+    div_mensagem.innerHTML = `
+    Nome: ${pessoa.nome} <br>
+    Idade: ${pessoa.idade} <br>
+    CPF: ${pessoa.cpf} <br>
+    Altura: ${pessoa.nome} <br>
+    Cor do cabelo: ${pessoa.nome} <br>
+    Peso: ${pessoa.peso} <br>`
+</script>

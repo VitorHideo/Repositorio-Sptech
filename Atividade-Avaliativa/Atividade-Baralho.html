@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade - Sete e Meio</title>
+    <style>
+        #game, #another-card-btn, #pass-btn {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="iniciar()">Jogar Sete e Meio</button>
+    <div id="game">
+        <button onclick="pedir()">Pedir Outra Carta</button>
+        <button onclick="passar()">Passar Vez</button>
+    </div>
+    <div id="messages"></div>
+
+    <script>
+        var pontos_jogador = 0, pontos_banca = 0, deck = [];
+        var copas = [], espadas = [], ouros = [], paus = [];
+        var values = ["Ás", "2", "3", "4", "5", "6", "7", "Valete", "Rainha", "Rei"];
+        var valuePoints = { "Ás": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "Valete": 0.5, "Rainha": 0.5, "Rei": 0.5 };
+
+        values.forEach(value => {
+            copas.push({ value: value, naipe: "Copas", points: valuePoints[value] });
+            espadas.push({ value: value, naipe: "Espadas", points: valuePoints[value] });
+            ouros.push({ value: value, naipe: "Ouros", points: valuePoints[value] });
+            paus.push({ value: value, naipe: "Paus", points: valuePoints[value] });
+        });
+
+        deck = copas.concat(espadas, ouros, paus);
+
+        function iniciar() {
+            document.body.children[0].style.display = "none";
+            document.body.children[1].style.display = "block";
+            document.body.children[2].innerHTML = "";
+            pontos_jogador = pontos_banca = 0;
+            deck = copas.concat(espadas, ouros, paus);
+            pedir();
+        }
+
+        function pedir() {
+            var card = deck.splice(Math.floor(Math.random() * deck.length), 1)[0];
+            pontos_jogador += card.points;
+            var message = `Jogador: (${pontos_jogador} pontos) - ${card.value} de ${card.naipe}`;
+            document.body.children[2].innerHTML += `<p>${message}</p>`;
+            check(pontos_jogador, "Jogador");
+        }
+
+        function passar() {
+            while (pontos_banca <= pontos_jogador && pontos_banca <= 7.5) {
+                var card = deck.splice(Math.floor(Math.random() * deck.length), 1)[0];
+                pontos_banca += card.points;
+                var message = `Banca: (${pontos_banca} pontos) - ${card.value} de ${card.naipe}`;
+                document.body.children[2].innerHTML += `<p>${message}</p>`;
+            }
+            check(pontos_banca, "Banca");
+        }
+
+        function check(points, role) {
+            if (points === 7.5) {
+                document.body.children[2].innerHTML += `<p>SETE E MEIO! ${role} venceu com 7.5 pontos!</p>`;
+                document.body.children[1].style.display = "none";
+            } else if (points > 7.5) {
+                var message = role === "Jogador" ? "O JOGADOR ESTOUROU! A banca venceu com " : "A BANCA ESTOUROU! O jogador venceu com ";
+                document.body.children[2].innerHTML += `<p>${message}${points} pontos!</p>`;
+                document.body.children[1].style.display = "none";
+            } else if (role === "Banca" && pontos_banca > pontos_jogador) {
+                document.body.children[2].innerHTML += `<p>A banca venceu com ${pontos_banca} pontos!</p>`;
+                document.body.children[1].style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

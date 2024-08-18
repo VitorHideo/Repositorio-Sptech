@@ -1,4 +1,5 @@
 #Exercicio 01
+print('Exercicio 1')
 peso=float(input('Quanto você pesa em kg? (kg)'))
 altura=float(input('Qual sua altura em M? (M)'))
 
@@ -7,8 +8,8 @@ IMC = peso / (altura**2)
 print('O seu IMC é de {:.1f}'.format(IMC))
 
 
-
 #Exercicio 02
+print('Exercicio 2')
 peso=float(input('Quanto você pesa em kg? (kg)'))
 altura=float(input('Qual sua altura em M? (M)'))
 
@@ -29,6 +30,7 @@ elif IMC >= 40:
 
 
 #Exercicio 03
+print('Exercicio 3')
 peso=float(input('Quanto você pesa em Kg? (kg) '))
 altura=float(input('Quanto você mede em altura? (m)'))
 
@@ -49,6 +51,7 @@ elif IMC >= 40:
 
 
 #Exercicio 04
+print('Exercicio 4')
 peso=float(input('Quanto você pesa em kg? (kg)'))
 altura=float(input('Qual sua altura em M? (M)'))
 
@@ -58,6 +61,7 @@ print('O seu IMC é de {:.2f}'.format(IMC))
 
 
 #Desafio, programa em LOOP
+
 while True:
     peso = float(input('Quanto você pesa em kg? (kg) '))
     altura = float(input('Qual sua altura em M? (M) '))
@@ -77,4 +81,7 @@ while True:
     elif IMC >= 40:
         print('Diagnóstico: Obesidade Mórbida')
 
-# Nesse caso o programa está em loop infinito, a unica maneira que parar a execução é utilizando o CRTL + C no terminal !!!
+    pergunta = input("Deseja calcular o IMC novamente? (s/n): ")
+    if pergunta != 's':
+        print("Ok, obrigado")
+        break

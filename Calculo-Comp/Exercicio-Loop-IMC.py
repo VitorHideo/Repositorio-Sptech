@@ -19,4 +19,10 @@ while True:
     elif IMC >= 40:
         print('Diagnóstico: Obesidade Mórbida')
 
+    pergunta = input("Deseja calcular o IMC novamente? (s/n): ")
+    if pergunta != 's':
+        print("Ok, obrigado")
+        break
+
+
 # Nesse caso o programa está em loop infinito, a unica maneira que parar a execução é utilizando o CRTL + C no terminal !!!

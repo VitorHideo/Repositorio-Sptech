@@ -1,8 +1,8 @@
 import psutil
 
 """Informações sobre a CPU"""
-#print(psutil.cpu_times (percpu = False ))
-#print(psutil.cpu_times())
+print(psutil.cpu_times (percpu = False ))
+print(psutil.cpu_times())
 
 """
 scputimes: estatística de tempo de cpu
@@ -15,25 +15,25 @@ adiado. São chamadas ao processadorque não responde ao processamento solicitad
 """
 
 """"Porcentagem de uso da CPU"""
-#print(psutil.cpu_percent(interval = 1))
+print(psutil.cpu_percent(interval = 1))
 
 """Desempenho do CORE da CPU"""
-#print(psutil.cpu_percent(interval=1, percpu=True))
+print(psutil.cpu_percent(interval=1, percpu=True))
 
 """Número total de CORE da CPU"""
-#print(psutil.cpu_count())
+print(psutil.cpu_count())
 
 """Número total de CORE VIRTUAIS da CPU"""
-#print(psutil.cpu_count(logical=False))
+print(psutil.cpu_count(logical=False))
 
 """Frequencia da CPU"""
-#print(psutil.cpu_freq())
-#print(psutil.cpu_freq(percpu=True))
+print(psutil.cpu_freq())
+print(psutil.cpu_freq(percpu=True))
 
 """Memoria Virtual"""
-#print(psutil.virtual_memory())
+print(psutil.virtual_memory())
 
 """Disco"""
-#print(psutil.disk_partitions())
-#print(psutil.disk_usage('/')) #('C:\\') Para WINDOWS e ('/') para LINUX
-#print(psutil.disk_partitions(all=False))
+print(psutil.disk_partitions())
+print(psutil.disk_usage('/')) #('C:\\') Para WINDOWS e ('/') para LINUX
+print(psutil.disk_partitions(all=False))

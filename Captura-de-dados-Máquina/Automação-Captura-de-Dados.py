@@ -1,29 +1,27 @@
-from mysql.connector import connect
-
 import psutil
+import mysql.connector
 
-def mysql_connection(host, user, passwd, database=None):
-    connection = connect(
-        host = host,
-        user = user,
-        passwd = passwd,
-        database = 'captura_maquina'
-    )
-    return connection
+# Config dos dados do MYSQL, usuario, senha, host e nome da database
+db_config = {
+    'user': 'root',
+    'password': '947921',
+    'host': 'localhost',
+    'database': 'captura'
+}
 
-connection = mysql_connection('localhost', 'aluno', 'sptech')
+# Config da conexão com banco de dados
+conn = mysql.connector.connect(**db_config)
+cursor = conn.cursor()
 
-#Captura automatica da Porcentagem de uso da CPU E MEMORIA RAM de 2 em 2 segundos
 while True:
 
-    processador = psutil.cpu_percent(interval = 3)
+    # Dados do processar de 2 a 2 segundos
+    processador = psutil.cpu_percent(interval=2) 
+    print(processador)
 
-    query = '''
-    INSERT INTO dados VALUES
-    (default,'processador')
-            
-    '''
-    cursor = connection.cursor()
-    cursor.execute(query)
-    connection.commit()
+    # Comando de instrução para fazer a inserção no banco
+    query = "INSERT INTO dados (processador) VALUES (%s)"
+    cursor.execute(query, (processador,))
+    conn.commit()
 
+# Para para é preciso usar o CTRL + C no terminal

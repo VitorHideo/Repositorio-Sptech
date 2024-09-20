@@ -51,3 +51,31 @@ dados1 <- data.frame(dados)
 dados1$altura <- NULL
 dados1
 
+subset(dados, luz =='muita')
+
+dados[dados$altura > 7 & dados$luz =="pouca", ]
+
+subset(dados,altura > 3 & luz == "muita" & folhas > 20)
+
+dados[1,1] <- 4
+dados
+
+dados[7,1] <- 20
+
+dados[dados$altura > 3,1]
+
+dados[dados$luz == "pouca",2]
+
+dados[dados$altura > 3,1]<-10
+dados
+
+
+# Comando para entrada de dados 
+
+foi<-scan()
+
+foi
+
+readline()
+
+readline(prompt = "Qual o seu nome? ")
